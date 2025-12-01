@@ -1,0 +1,69 @@
+version: 2
+
+models:
+
+  # ----------------------------
+  # DIM AIRCRAFT
+  # ----------------------------
+  - name: dim_aircraft
+    description: "Dimension contenant les caractéristiques techniques des avions."
+    columns:
+      - name: aircraft_id
+        description: "Identifiant unique de l’appareil."
+        tests:
+          - not_null
+          - unique
+
+      - name: aircraft_type
+        description: "Modèle ou type de l’avion."
+      - name: mass
+        description: "Masse de l’avion en kg."
+      - name: length
+        description: "Longueur en mètres."
+      - name: cost
+        description: "Coût estimé de l’appareil."
+      - name: capacity
+        description: "Nombre de passagers maximum."
+
+
+  # ----------------------------
+  # DIM AIRLINE
+  # ----------------------------
+  - name: dim_airline
+    description: "Dimension listant les compagnies aériennes."
+    columns:
+      - name: airline_code
+        description: "Identifiant unique de la compagnie."
+        tests:
+          - not_null
+
+      - name: airline_name
+        description: "Nom officiel de la compagnie."
+      - name: description
+        description: "Informations générales."
+      - name: market_cap
+        description: "Capitalisation boursière."
+      - name: employees
+        description: "Nombre d’employés."
+      - name: age
+        description: "Ancienneté en années."
+
+
+  # ----------------------------
+  # DIM AIRPORT
+  # ----------------------------
+  - name: dim_airport
+    description: "Dimension des aéroports."
+    columns:
+      - name: airport_code
+        description: "Code unique de l’aéroport."
+        tests:
+          - not_null
+          - unique
+
+      - name: airport_name
+        description: "Nom de l’aéroport."
+      - name: airport_employees
+        description: "Nombre d'employés."
+      - name: airport_size
+        description: "Taille ou catégorie."
