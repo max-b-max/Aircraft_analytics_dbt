@@ -1,1 +1,9 @@
+<<<<<<< HEAD
 .env
+=======
+# you shouldn't commit these into source control
+# these are the default directory names, adjust/add to fit your needs
+target/
+dbt_packages/
+logs/
+>>>>>>> ba1d451299dc1aff9f1a6825f833d019a93e6ba3
