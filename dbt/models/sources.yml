@@ -1,0 +1,154 @@
+version: 2
+
+sources:
+  - name: aircraft
+    database: raw
+    schema: public
+    tables:
+
+      # ---------------------------------------------------
+      # TABLE: aircraft
+      # ---------------------------------------------------
+      - name: aircraft
+        description: "Liste des avions et leurs caractéristiques."
+        columns:
+          - name: index
+            description: "Index technique interne."
+
+          - name: Aircraft_Id
+            description: "Identifiant unique de l’avion."
+
+          - name: Aircraft_Type
+            description: "Modèle de l’avion."
+
+          - name: Mass
+            description: "Masse en kg."
+
+          - name: Length
+            description: "Longueur de l’avion."
+
+          - name: Cost
+            description: "Coût estimé de l’appareil."
+
+          - name: Capacity
+            description: "Capacité en nombre de passagers."
+
+
+      # ---------------------------------------------------
+      # TABLE: airlines
+      # ---------------------------------------------------
+      - name: airlines
+        description: "Compagnies aériennes."
+        columns:
+          - name: index
+            description: "Index technique."
+
+          - name: Airline_Code
+            description: "Code unique de la compagnie aérienne."
+
+          - name: Airline_Name
+            description: "Nom de la compagnie."
+
+          - name: Description
+            description: "Description ou notes."
+
+          - name: Market_Cap
+            description: "Capitalisation boursière estimée."
+
+          - name: Employees
+            description: "Nombre d’employés."
+
+          - name: Age
+            description: "Âge de la compagnie."
+
+
+      # ---------------------------------------------------
+      # TABLE: airports
+      # ---------------------------------------------------
+      - name: airports
+        description: "Aéroports desservis."
+        columns:
+          - name: index
+            description: "Index interne."
+
+          - name: Airport_Code
+            description: "Code unique de l'aéroport."
+
+          - name: Airport_Name
+            description: "Nom de l'aéroport."
+
+          - name: Airport_Employees
+            description: "Nombre d’employés."
+
+          - name: Airport_Size
+            description: "Taille (m², unité interne)."
+
+
+      # ---------------------------------------------------
+      # TABLE: flight_summary_data
+      # ---------------------------------------------------
+      - name: flight_summary_data
+        description: "Résumé quotidien du trafic aérien."
+        columns:
+
+          - name: index
+            description: "Index technique."
+
+          - name: Date
+            description: "Date de reporting."
+
+          - name: ASM_Domestic
+            description: "Available Seat Miles domestiques."
+
+          - name: ASM_International
+            description: "Available Seat Miles internationaux."
+
+          - name: Flights_Domestic
+            description: "Vols domestiques."
+
+          - name: Flights_International
+            description: "Vols internationaux."
+
+          - name: Passengers_Domestic
+            description: "Passagers domestiques."
+
+          - name: Passengers_International
+            description: "Passagers internationaux."
+
+          - name: RPM_Domestic
+            description: "Revenue Passenger Miles domestiques."
+
+          - name: RPM_International
+            description: "Revenue Passenger Miles internationaux."
+
+          - name: Airline_Code
+            description: "Compagnie aérienne."
+
+          - name: Airport_Code
+            description: "Aéroport de liaison."
+
+
+      # ---------------------------------------------------
+      # TABLE: individual_flights
+      # ---------------------------------------------------
+      - name: individual_flights
+        description: "Détails vol par vol."
+        columns:
+
+          - name: index
+            description: "Index technique."
+
+          - name: Flight_Id
+            description: "Identifiant du vol."
+
+          - name: Airline_Code
+            description: "Compagnie exploitante."
+
+          - name: Departure_Airport_Code
+            description: "Aéroport de départ."
+
+          - name: Destination_Airport_Code
+            description: "Aéroport d’arrivée."
+
+          - name: Aircraft_Id
+            description: "Identifiant de l’avion."

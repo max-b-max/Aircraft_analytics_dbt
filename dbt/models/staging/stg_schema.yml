@@ -1,0 +1,134 @@
+version: 2
+
+models:
+
+  # ----------------------------
+  # STG AIRCRAFT
+  # ----------------------------
+  - name: stg_aircraft
+    description: "Nettoyage et standardisation de la table RAW des avions."
+    columns:
+      - name: aircraft_id
+        description: "Identifiant unique de l’avion (colonnes Aircraft_Id)."
+        tests:
+          - not_null
+
+      - name: aircraft_type
+        description: "Modèle d’avion."
+      - name: mass
+        description: "Masse en kg."
+      - name: length
+        description: "Longueur en mètres."
+      - name: cost
+        description: "Coût estimé."
+      - name: capacity
+        description: "Capacité maximale de passagers."
+
+
+  # ----------------------------
+  # STG AIRLINES
+  # ----------------------------
+  - name: stg_airlines
+    description: "Table nettoyée des compagnies aériennes."
+    columns:
+      - name: airline_code
+        description: "Identifiant unique de la compagnie (Airline_Code)."
+        tests:
+          - not_null
+
+      - name: airline_name
+        description: "Nom de la compagnie."
+      - name: description
+        description: "Description textuelle."
+      - name: market_cap
+        description: "Capitalisation boursière estimée."
+      - name: employees
+        description: "Nombre d’employés."
+      - name: age
+        description: "Âge de la compagnie."
+
+
+  # ----------------------------
+  # STG AIRPORTS
+  # ----------------------------
+  - name: stg_airports
+    description: "Nettoyage de la table RAW des aéroports."
+    columns:
+      - name: airport_code
+        description: "Code unique de l’aéroport."
+        tests:
+          - not_null
+
+      - name: airport_name
+        description: "Nom de l’aéroport."
+      - name: airport_employees
+        description: "Nombre d’employés déclarés."
+      - name: airport_size
+        description: "Catégorie / taille déclarée."
+
+
+  # ----------------------------
+  # STG INDIVIDUAL FLIGHT
+  # ----------------------------
+  - name: stg_individual_flight
+    description: "Préparation des données de vols individuels."
+    columns:
+      - name: flight_id
+        description: "Identifiant unique du vol."
+        tests:
+          - not_null
+
+      - name: airline_code
+        description: "Compagnie opératrice."
+        tests:
+          - not_null
+
+      - name: aircraft_id
+        description: "Identifiant de l’avion utilisé."
+        tests:
+          - not_null
+
+      - name: departure_airport_code
+        description: "Aéroport de départ."
+
+      - name: destination_airport_code
+        description: "Aéroport d’arrivée."
+
+
+  # ----------------------------
+  # STG FLIGHT SUMMARY DATA
+  # ----------------------------
+  - name: stg_flight_summary_data
+    description: "Nettoyage des métriques journalières par compagnie et aéroport."
+    columns:
+      - name: date
+        description: "Date du reporting."
+        tests:
+          - not_null
+
+      - name: airline_code
+        description: "Code de la compagnie."
+        tests:
+          - not_null
+
+      - name: airport_code
+        description: "Code de l’aéroport."
+        tests:
+          - not_null
+
+      - name: asm_domestic
+        description: "Available Seat Miles domestiques."
+      - name: asm_international
+        description: "Available Seat Miles internationaux."
+      - name: flights_domestic
+        description: "Nombre de vols domestiques."
+      - name: flights_international
+        description: "Nombre de vols internationaux."
+      - name: passengers_domestic
+        description: "Passagers domestiques."
+      - name: passengers_international
+        description: "Passagers internationaux."
+      - name: rpm_domestic
+        description: "Revenue Passenger Miles domestiques."
+      - name: rpm_international
+        description: "Revenue Passenger Miles internationaux."

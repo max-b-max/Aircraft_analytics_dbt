@@ -1,0 +1,4019 @@
+metadata:
+  createdAt: 2025-12-31T15:25:27.004Z
+  modifiedAt: 2025-12-31T16:55:39.219Z
+project:
+  id: 46d433ee-a18b-4fb7-bdda-a5242bede5ce
+  name: maxime breuillard’s Untitled project
+  integrations:
+    - id: 1d4e6ac3-7a9b-428f-bd7b-9f7e975e2bcf
+      name: Analytics_aircraft
+      type: snowflake
+  notebooks:
+    - blocks:
+        - blockGroup: de61aa6a3aa9425a80e106bf185fbf9a
+          content: ""
+          id: c92f081d17bb4e858ee52a8965c5c039
+          metadata:
+            formattedRanges: []
+          sortingKey: a0
+          type: text-cell-p
+        - blockGroup: 5972fc8d29db43d4bc6ac9c9729bd5f2
+          content: |-
+            SELECT 
+                f.aircraft_type,
+                COUNT(*) AS total_flights
+            FROM analytics.aircraft.fct_individual_flights f
+            GROUP BY f.aircraft_type
+            ORDER BY total_flights DESC;
+          executionCount: 16
+          id: 7ab87616963b4c3eb4e20ea1831dfc6d
+          metadata:
+            execution_start: 1767196702808
+            execution_millis: 2736
+            sql_integration_id: 1d4e6ac3-7a9b-428f-bd7b-9f7e975e2bcf
+            execution_context_id: dd8c7579-5917-4d85-819e-598913aec215
+            deepnote_variable_name: df_1
+          outputs:
+            - data:
+                application/vnd.deepnote.sql-output-metadata+json:
+                  status: success_no_cache
+                  size_in_bytes: 501
+                  compiled_query: |-
+                    SELECT 
+                        f.aircraft_type,
+                        COUNT(*) AS total_flights
+                    FROM analytics.aircraft.fct_individual_flights f
+                    GROUP BY f.aircraft_type
+                    ORDER BY total_flights DESC
+                    /* {"app":"deepnote","submitted_by":"user","user_email":"maxime.breuillard@orange.fr","workspace_id":"6704ce44-89db-434c-a146-cd791f7ac4e6","project_id":"46d433ee-a18b-4fb7-bdda-a5242bede5ce","notebook_id":"f41edbb04e404c22a18d48518c1558eb","project_url":"https://deepnote.com/project/46d433ee-a18b-4fb7-bdda-a5242bede5ce"} */;
+                  variable_type: dataframe
+                  integration_id: 1d4e6ac3-7a9b-428f-bd7b-9f7e975e2bcf
+              metadata: {}
+              output_type: display_data
+            - output_type: execute_result
+              execution_count: 16
+              data:
+                application/vnd.deepnote.dataframe.v3+json:
+                  column_count: 2
+                  columns:
+                    - name: aircraft_type
+                      dtype: object
+                      stats:
+                        unique_count: 5
+                        nan_count: 0
+                        min: null
+                        max: null
+                        histogram: null
+                        categories:
+                          - name: Goose
+                            count: 1
+                          - name: Thundercat
+                            count: 1
+                          - name: 3 others
+                            count: 3
+                    - name: total_flights
+                      dtype: int64
+                      stats:
+                        unique_count: 5
+                        nan_count: 0
+                        min: "192"
+                        max: "1008"
+                        histogram:
+                          - bin_start: 192
+                            bin_end: 273.6
+                            count: 2
+                          - bin_start: 273.6
+                            bin_end: 355.2
+                            count: 1
+                          - bin_start: 355.2
+                            bin_end: 436.79999999999995
+                            count: 0
+                          - bin_start: 436.79999999999995
+                            bin_end: 518.4
+                            count: 0
+                          - bin_start: 518.4
+                            bin_end: 600
+                            count: 1
+                          - bin_start: 600
+                            bin_end: 681.5999999999999
+                            count: 0
+                          - bin_start: 681.5999999999999
+                            bin_end: 763.1999999999999
+                            count: 0
+                          - bin_start: 763.1999999999999
+                            bin_end: 844.8
+                            count: 0
+                          - bin_start: 844.8
+                            bin_end: 926.4
+                            count: 0
+                          - bin_start: 926.4
+                            bin_end: 1008
+                            count: 1
+                        categories: null
+                    - name: _deepnote_index_column
+                      dtype: int64
+                  row_count: 5
+                  preview_row_count: 5
+                  rows:
+                    - aircraft_type: Goose
+                      total_flights: 1008
+                      _deepnote_index_column: 0
+                    - aircraft_type: Thundercat
+                      total_flights: 553
+                      _deepnote_index_column: 1
+                    - aircraft_type: Miniflock
+                      total_flights: 277
+                      _deepnote_index_column: 2
+                    - aircraft_type: Bezantium
+                      total_flights: 240
+                      _deepnote_index_column: 3
+                    - aircraft_type: Flockinator
+                      total_flights: 192
+                      _deepnote_index_column: 4
+                  type: dataframe
+                text/plain: |2-
+                    aircraft_type  total_flights
+                  0         Goose           1008
+                  1    Thundercat            553
+                  2     Miniflock            277
+                  3     Bezantium            240
+                  4   Flockinator            192
+                text/html: |-
+                  <div>
+                  <style scoped>
+                      .dataframe tbody tr th:only-of-type {
+                          vertical-align: middle;
+                      }
+
+                      .dataframe tbody tr th {
+                          vertical-align: top;
+                      }
+
+                      .dataframe thead th {
+                          text-align: right;
+                      }
+                  </style>
+                  <table border="1" class="dataframe">
+                    <thead>
+                      <tr style="text-align: right;">
+                        <th></th>
+                        <th>aircraft_type</th>
+                        <th>total_flights</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>0</th>
+                        <td>Goose</td>
+                        <td>1008</td>
+                      </tr>
+                      <tr>
+                        <th>1</th>
+                        <td>Thundercat</td>
+                        <td>553</td>
+                      </tr>
+                      <tr>
+                        <th>2</th>
+                        <td>Miniflock</td>
+                        <td>277</td>
+                      </tr>
+                      <tr>
+                        <th>3</th>
+                        <td>Bezantium</td>
+                        <td>240</td>
+                      </tr>
+                      <tr>
+                        <th>4</th>
+                        <td>Flockinator</td>
+                        <td>192</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+              metadata:
+                table_state_spec: "{}"
+          sortingKey: m
+          type: sql
+        - blockGroup: 24a1ffb128b94400816a538abe15e832
+          content: ""
+          executionCount: 91
+          id: d342971461a84dae84a8cc5f0e071b6b
+          metadata:
+            execution_start: 1767197151624
+            execution_millis: 10
+            execution_context_id: dd8c7579-5917-4d85-819e-598913aec215
+            deepnote_chart_height: 556
+            deepnote_variable_name: df_1
+            deepnote_config_collapsed: true
+            deepnote_visualization_spec:
+              layer:
+                - layer:
+                    - layer:
+                        - mark:
+                            clip: true
+                            type: bar
+                            color: "#2266D3"
+                            tooltip: true
+                          encoding:
+                            x:
+                              axis:
+                                title: Avions
+                              sort: null
+                              type: nominal
+                              field: aircraft_type
+                              scale:
+                                type: linear
+                            y:
+                              axis:
+                                title: Nombre de vols
+                                format:
+                                  type: default
+                                  decimals: null
+                                formatType: numberFormatFromNumberType
+                              type: quantitative
+                              field: total_flights
+                              scale:
+                                type: linear
+                              format:
+                                type: default
+                                decimals: null
+                              aggregate: sum
+                              formatType: numberFormatFromNumberType
+                            color:
+                              type: nominal
+                              datum: total_flights
+                              scale:
+                                range:
+                                  - "#2266D3"
+                                domain:
+                                  - total_flights
+                            xOffset:
+                              datum: series_0
+                          transform: []
+                        - mark:
+                            dx: 0
+                            dy: -1
+                            fill:
+                              expr: valueLabelsColor
+                            type: text
+                            align: center
+                            baseline: bottom
+                          encoding:
+                            x:
+                              axis:
+                                title: Avions
+                              sort: null
+                              type: nominal
+                              field: aircraft_type
+                              scale:
+                                type: linear
+                            y:
+                              axis:
+                                title: Nombre de vols
+                                format:
+                                  type: default
+                                  decimals: null
+                                formatType: numberFormatFromNumberType
+                              type: quantitative
+                              field: total_flights
+                              scale:
+                                type: linear
+                              format:
+                                type: default
+                                decimals: null
+                              aggregate: sum
+                              formatType: numberFormatFromNumberType
+                            text:
+                              type: quantitative
+                              field: total_flights
+                              aggregate: sum
+                            color:
+                              type: nominal
+                              datum: total_flights
+                              scale:
+                                range:
+                                  - "#2266D3"
+                                domain:
+                                  - total_flights
+                            xOffset:
+                              datum: series_0
+                          transform: []
+                  resolve:
+                    scale:
+                      color: independent
+              title: "Quel avion a effectué le plus de vols ? "
+              config:
+                legend:
+                  orient: bottom
+                  disable: false
+              params:
+                - name: valueLabelsColor
+                  value: black
+              $schema: https://vega.github.io/schema/vega-lite/v5.json
+              encoding: {}
+              usermeta:
+                seriesNames:
+                  - total_flights
+                seriesOrder:
+                  - 0
+                specSchemaVersion: 2
+                tooltipDefaultMode: true
+          outputs:
+            - output_type: execute_result
+              execution_count: 91
+              data:
+                application/vnd.vega.v5+json:
+                  $schema: https://vega.github.io/schema/vega/v5.json
+                  data:
+                    - name: legend_size_0_store
+                    - name: legend_color_0_store
+                    - name: interval_selection_store
+                    - name: legend_size_0_0_store
+                    - name: legend_color_0_0_store
+                    - name: source_0
+                      values:
+                        - aircraft_type: Goose
+                          sum_total_flights: 1008
+                        - aircraft_type: Thundercat
+                          sum_total_flights: 553
+                        - aircraft_type: Miniflock
+                          sum_total_flights: 277
+                        - aircraft_type: Bezantium
+                          sum_total_flights: 240
+                        - aircraft_type: Flockinator
+                          sum_total_flights: 192
+                    - name: source_0_x_domain_aircraft_type
+                      values:
+                        - aircraft_type: Goose
+                        - aircraft_type: Thundercat
+                        - aircraft_type: Miniflock
+                        - aircraft_type: Bezantium
+                        - aircraft_type: Flockinator
+                    - name: source_0_y_domain_sum_total_flights
+                      values:
+                        - min: 192
+                          max: 1008
+                  signals:
+                    - name: width
+                      init: "isFinite(containerSize()[0]) ? containerSize()[0] : 200"
+                      on:
+                        - events: window:resize
+                          update: "isFinite(containerSize()[0]) ? containerSize()[0] : 200"
+                    - name: height
+                      init: "isFinite(containerSize()[1]) ? containerSize()[1] : 200"
+                      on:
+                        - events: window:resize
+                          update: "isFinite(containerSize()[1]) ? containerSize()[1] : 200"
+                    - name: unit
+                      value: {}
+                      on:
+                        - events: pointermove
+                          update: "isTuple(group()) ? group() : unit"
+                    - name: legend_size_0
+                      update: vlSelectionResolve("legend_size_0_store", "union", true, true)
+                    - name: legend_color_0
+                      update: vlSelectionResolve("legend_color_0_store", "union", true, true)
+                    - name: interval_selection
+                      update: vlSelectionResolve("interval_selection_store", "union")
+                    - name: legend_size_0_0
+                      update: vlSelectionResolve("legend_size_0_0_store", "union", true, true)
+                    - name: legend_color_0_0
+                      update: vlSelectionResolve("legend_color_0_0_store", "union", true, true)
+                    - name: valueLabelsColor
+                      value: black
+                    - name: legend_size_0_tuple
+                      on:
+                        - events:
+                            - source: scope
+                              type: click
+                          update: "datum && item().mark.marktype !== 'group' && indexof(item().mark.role,
+                            'legend') < 0 && indexof(item().mark.name,
+                            'interval_selection_brush') < 0 ? {unit:
+                            \"layer_0_layer_0_layer_0\", fields:
+                            legend_size_0_tuple_fields, values: []} : null"
+                          force: true
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "null"
+                    - name: legend_size_0_tuple_fields
+                      value: []
+                    - name: legend_size_0_toggle
+                      value: false
+                      on:
+                        - events:
+                            - source: scope
+                              type: click
+                          update: "true"
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "false"
+                    - name: legend_size_0_modify
+                      on:
+                        - events:
+                            signal: legend_size_0_tuple
+                          update: 'modify("legend_size_0_store", legend_size_0_toggle ? null :
+                            legend_size_0_tuple, legend_size_0_toggle ? null :
+                            true, legend_size_0_toggle ? legend_size_0_tuple :
+                            null)'
+                    - name: legend_color_0_tuple
+                      on:
+                        - events:
+                            - source: scope
+                              type: click
+                          update: "datum && item().mark.marktype !== 'group' && indexof(item().mark.role,
+                            'legend') < 0 && indexof(item().mark.name,
+                            'interval_selection_brush') < 0 ? {unit:
+                            \"layer_0_layer_0_layer_0\", fields:
+                            legend_color_0_tuple_fields, values: []} : null"
+                          force: true
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "null"
+                    - name: legend_color_0_tuple_fields
+                      value: []
+                    - name: legend_color_0_toggle
+                      value: false
+                      on:
+                        - events:
+                            - source: scope
+                              type: click
+                          update: "true"
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "false"
+                    - name: legend_color_0_modify
+                      on:
+                        - events:
+                            signal: legend_color_0_tuple
+                          update: 'modify("legend_color_0_store", legend_color_0_toggle ? null :
+                            legend_color_0_tuple, legend_color_0_toggle ? null :
+                            true, legend_color_0_toggle ? legend_color_0_tuple :
+                            null)'
+                    - name: interval_selection_x
+                      value: []
+                      on:
+                        - events:
+                            source: scope
+                            filter:
+                              - '!event.item || event.item.mark.name !==
+                                "interval_selection_brush"'
+                            type: pointerdown
+                          update: "[x(unit), x(unit)]"
+                        - events:
+                            source: window
+                            between:
+                              - source: scope
+                                filter:
+                                  - '!event.item || event.item.mark.name !==
+                                    "interval_selection_brush"'
+                                type: pointerdown
+                              - source: window
+                                type: pointerup
+                            type: pointermove
+                            consume: true
+                          update: "[interval_selection_x[0], clamp(x(unit), 0, width)]"
+                        - events:
+                            signal: interval_selection_scale_trigger
+                          update: "[0, 0]"
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "[0, 0]"
+                        - events:
+                            signal: interval_selection_translate_delta
+                          update: clampRange(panLinear(interval_selection_translate_anchor.extent_x,
+                            interval_selection_translate_delta.x /
+                            span(interval_selection_translate_anchor.extent_x)),
+                            0, width)
+                        - events:
+                            signal: interval_selection_zoom_delta
+                          update: clampRange(zoomLinear(interval_selection_x,
+                            interval_selection_zoom_anchor.x,
+                            interval_selection_zoom_delta), 0, width)
+                    - name: interval_selection_aircraft_type
+                      on:
+                        - events:
+                            signal: interval_selection_x
+                          update: 'interval_selection_x[0] === interval_selection_x[1] ? null :
+                            invert("x", interval_selection_x)'
+                    - name: interval_selection_scale_trigger
+                      value: {}
+                      on:
+                        - events:
+                            - scale: x
+                          update: '(!isArray(interval_selection_aircraft_type) || (invert("x",
+                            interval_selection_x)[0] ===
+                            interval_selection_aircraft_type[0] && invert("x",
+                            interval_selection_x)[1] ===
+                            interval_selection_aircraft_type[1])) ?
+                            interval_selection_scale_trigger : {}'
+                    - name: interval_selection_tuple
+                      on:
+                        - events:
+                            - signal: interval_selection_aircraft_type
+                          update: 'interval_selection_aircraft_type ? {unit: "layer_0_layer_0_layer_0",
+                            fields: interval_selection_tuple_fields, values:
+                            [interval_selection_aircraft_type]} : null'
+                    - name: interval_selection_tuple_fields
+                      value:
+                        - field: aircraft_type
+                          channel: x
+                          type: E
+                    - name: interval_selection_translate_anchor
+                      value: {}
+                      on:
+                        - events:
+                            - source: scope
+                              markname: interval_selection_brush
+                              type: pointerdown
+                          update: "{x: x(unit), y: y(unit), extent_x: slice(interval_selection_x)}"
+                    - name: interval_selection_translate_delta
+                      value: {}
+                      on:
+                        - events:
+                            - source: window
+                              between:
+                                - source: scope
+                                  markname: interval_selection_brush
+                                  type: pointerdown
+                                - source: window
+                                  type: pointerup
+                              type: pointermove
+                              consume: true
+                          update: "{x: interval_selection_translate_anchor.x - x(unit), y:
+                            interval_selection_translate_anchor.y - y(unit)}"
+                    - name: interval_selection_zoom_anchor
+                      on:
+                        - events:
+                            - source: scope
+                              markname: interval_selection_brush
+                              consume: true
+                              type: wheel
+                          update: "{x: x(unit), y: y(unit)}"
+                    - name: interval_selection_zoom_delta
+                      on:
+                        - events:
+                            - source: scope
+                              markname: interval_selection_brush
+                              consume: true
+                              type: wheel
+                          update: pow(1.001, event.deltaY * pow(16, event.deltaMode))
+                          force: true
+                    - name: interval_selection_modify
+                      on:
+                        - events:
+                            signal: interval_selection_tuple
+                          update: modify("interval_selection_store", interval_selection_tuple, true)
+                    - name: legend_size_0_0_tuple
+                      on:
+                        - events:
+                            - source: scope
+                              type: click
+                          update: "datum && item().mark.marktype !== 'group' && indexof(item().mark.role,
+                            'legend') < 0 ? {unit: \"layer_0_layer_0_layer_1\",
+                            fields: legend_size_0_0_tuple_fields, values: []} :
+                            null"
+                          force: true
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "null"
+                    - name: legend_size_0_0_tuple_fields
+                      value: []
+                    - name: legend_size_0_0_toggle
+                      value: false
+                      on:
+                        - events:
+                            - source: scope
+                              type: click
+                          update: "true"
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "false"
+                    - name: legend_size_0_0_modify
+                      on:
+                        - events:
+                            signal: legend_size_0_0_tuple
+                          update: 'modify("legend_size_0_0_store", legend_size_0_0_toggle ? null :
+                            legend_size_0_0_tuple, legend_size_0_0_toggle ? null
+                            : true, legend_size_0_0_toggle ?
+                            legend_size_0_0_tuple : null)'
+                    - name: legend_color_0_0_tuple
+                      on:
+                        - events:
+                            - source: scope
+                              type: click
+                          update: "datum && item().mark.marktype !== 'group' && indexof(item().mark.role,
+                            'legend') < 0 ? {unit: \"layer_0_layer_0_layer_1\",
+                            fields: legend_color_0_0_tuple_fields, values: []} :
+                            null"
+                          force: true
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "null"
+                    - name: legend_color_0_0_tuple_fields
+                      value: []
+                    - name: legend_color_0_0_toggle
+                      value: false
+                      on:
+                        - events:
+                            - source: scope
+                              type: click
+                          update: "true"
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "false"
+                    - name: legend_color_0_0_modify
+                      on:
+                        - events:
+                            signal: legend_color_0_0_tuple
+                          update: 'modify("legend_color_0_0_store", legend_color_0_0_toggle ? null :
+                            legend_color_0_0_tuple, legend_color_0_0_toggle ?
+                            null : true, legend_color_0_0_toggle ?
+                            legend_color_0_0_tuple : null)'
+                  marks:
+                    - type: rect
+                      name: interval_selection_brush_bg
+                      encode:
+                        update:
+                          x2:
+                            - signal: interval_selection_x[1]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          y2:
+                            - field:
+                                signal: null
+                                datum: null
+                                group: height
+                                parent: null
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          y:
+                            - value: 0
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          x:
+                            - signal: interval_selection_x[0]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                        enter:
+                          fill:
+                            value: "#333"
+                          fillOpacity:
+                            value: 0.125
+                      clip: true
+                    - type: rect
+                      name: layer_0_layer_0_layer_0_marks
+                      from:
+                        data: source_0
+                      encode:
+                        update:
+                          opacity:
+                            - value: 1
+                              test: (!length(data("legend_size_0_store")) ||
+                                vlSelectionTest("legend_size_0_store", datum))
+                                && (!length(data("legend_color_0_store")) ||
+                                vlSelectionTest("legend_color_0_store", datum))
+                                && (!length(data("interval_selection_store")) ||
+                                vlSelectionTest("interval_selection_store",
+                                datum))
+                            - value: 0.2
+                          tooltip:
+                            signal: '{"aircraft_type": isValid(datum["aircraft_type"]) ?
+                              datum["aircraft_type"] :
+                              ""+datum["aircraft_type"], "Sum of total_flights":
+                              numberFormatFromNumberType(datum["sum_total_flights"],
+                              {"decimals":null,"type":"default"})}'
+                          fill:
+                            value: total_flights
+                            scale: layer_0_layer_0_color
+                          x:
+                            field: aircraft_type
+                            scale: x
+                            offset:
+                              value: series_0
+                              scale: xOffset
+                          width:
+                            signal: max(0.25, bandwidth('xOffset'))
+                          y:
+                            field: sum_total_flights
+                            scale: y
+                          y2:
+                            value: 0
+                            scale: y
+                      clip: true
+                      interactive: true
+                      style:
+                        - bar
+                    - type: text
+                      name: layer_0_layer_0_layer_1_marks
+                      from:
+                        data: source_0
+                      encode:
+                        update:
+                          dy:
+                            value: -1
+                          dx:
+                            value: 0
+                          fill:
+                            signal: valueLabelsColor
+                          x:
+                            field: aircraft_type
+                            scale: x
+                            offset:
+                              value: series_0
+                              scale: xOffset
+                              band: 0.5
+                          baseline:
+                            value: bottom
+                          y:
+                            field: sum_total_flights
+                            scale: y
+                          text:
+                            signal: format(datum["sum_total_flights"], "")
+                          align:
+                            value: center
+                      interactive: true
+                      style:
+                        - text
+                    - type: rect
+                      name: interval_selection_brush
+                      encode:
+                        update:
+                          stroke:
+                            - value: white
+                              test: interval_selection_x[0] !== interval_selection_x[1]
+                            - {}
+                          y:
+                            - value: 0
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          x:
+                            - signal: interval_selection_x[0]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          y2:
+                            - field:
+                                signal: null
+                                datum: null
+                                group: height
+                                parent: null
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          x2:
+                            - signal: interval_selection_x[1]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                        enter:
+                          cursor:
+                            value: move
+                          fill:
+                            value: transparent
+                      clip: true
+                  scales:
+                    - name: x
+                      type: band
+                      domain:
+                        data: source_0_x_domain_aircraft_type
+                        field: aircraft_type
+                      range:
+                        - 0
+                        - signal: width
+                      paddingInner: 0.2
+                      paddingOuter: 0.2
+                    - name: y
+                      type: linear
+                      domain:
+                        - signal: (data("source_0_y_domain_sum_total_flights")[0] || {}).min
+                        - signal: (data("source_0_y_domain_sum_total_flights")[0] || {}).max
+                      range:
+                        - signal: height
+                        - 0
+                      nice: true
+                      zero: true
+                    - name: xOffset
+                      type: band
+                      domain:
+                        - series_0
+                      range:
+                        - 0
+                        - signal: bandwidth('x')
+                    - name: layer_0_layer_0_color
+                      type: ordinal
+                      domain:
+                        - total_flights
+                      range:
+                        - "#2266D3"
+                  axes:
+                    - scale: y
+                      orient: left
+                      gridScale: x
+                      zindex: 0
+                      tickCount: 5
+                      ticks: false
+                      aria: false
+                      minExtent: 0
+                      domain: false
+                      maxExtent: 0
+                      labels: false
+                      grid: true
+                    - scale: x
+                      title: Avions
+                      labelAngle: 270
+                      zindex: 0
+                      labelBaseline: middle
+                      orient: bottom
+                      grid: false
+                      labelAlign: right
+                    - scale: y
+                      labelOverlap: true
+                      zindex: 0
+                      orient: left
+                      title: Nombre de vols
+                      encode:
+                        labels:
+                          update:
+                            text:
+                              signal: numberFormatFromNumberType(datum.value,
+                                {"decimals":null,"type":"default"})
+                      grid: false
+                      tickCount: 5
+                  title:
+                    text: "Quel avion a effectué le plus de vols ? "
+                    frame: group
+                  usermeta:
+                    seriesOrder:
+                      - 0
+                    specSchemaVersion: 2
+                    seriesNames:
+                      - total_flights
+                    tooltipDefaultMode: true
+                    outputMetadata:
+                      rowLimitExceeded: false
+                      rowLimit: 5000
+                      filteredDataframeSize: 5
+                      columns:
+                        - name: aircraft_type
+                          nativeType: object
+                          distinctValues:
+                            - Bezantium
+                            - Flockinator
+                            - Goose
+                            - Miniflock
+                            - Thundercat
+                        - name: total_flights
+                          nativeType: int64
+                          distinctValues:
+                            - 192
+                            - 240
+                            - 277
+                            - 553
+                            - 1008
+                  style: cell
+                  legends:
+                    - fill: layer_0_layer_0_color
+                      direction: horizontal
+                      symbolType: circle
+                      encode:
+                        symbols:
+                          update:
+                            opacity:
+                              value: 1
+                  background: white
+                  config:
+                    customFormatTypes: true
+                    legend:
+                      orient: bottom
+                      disable: false
+                  autosize:
+                    type: fit
+                    contains: padding
+                  padding: 5
+                text/plain: <deepnote_toolkit.chart.deepnote_chart.DeepnoteChart at
+                  0x7f7d34815950>
+              metadata: {}
+          sortingKey: s
+          type: visualization
+        - blockGroup: ed679c794c124e78a18587daaf10a10f
+          content: |-
+            SELECT
+                airport_code,
+                airport_name,
+                nb_passengers
+            FROM analytics.aircraft.fct_airport
+            ORDER BY nb_passengers DESC;
+          executionCount: 97
+          id: cf6a1b0e063d42d4a9d63e632f856df8
+          metadata:
+            execution_start: 1767197282674
+            execution_millis: 2820
+            sql_integration_id: 1d4e6ac3-7a9b-428f-bd7b-9f7e975e2bcf
+            execution_context_id: dd8c7579-5917-4d85-819e-598913aec215
+            deepnote_variable_name: df_2
+          outputs:
+            - data:
+                application/vnd.deepnote.sql-output-metadata+json:
+                  status: success_no_cache
+                  size_in_bytes: 550
+                  compiled_query: |-
+                    SELECT
+                        airport_code,
+                        airport_name,
+                        nb_passengers
+                    FROM analytics.aircraft.fct_airport
+                    ORDER BY nb_passengers DESC
+                    /* {"app":"deepnote","submitted_by":"user","user_email":"maxime.breuillard@orange.fr","workspace_id":"6704ce44-89db-434c-a146-cd791f7ac4e6","project_id":"46d433ee-a18b-4fb7-bdda-a5242bede5ce","notebook_id":"f41edbb04e404c22a18d48518c1558eb","project_url":"https://deepnote.com/project/46d433ee-a18b-4fb7-bdda-a5242bede5ce"} */;
+                  variable_type: dataframe
+                  integration_id: 1d4e6ac3-7a9b-428f-bd7b-9f7e975e2bcf
+              metadata: {}
+              output_type: display_data
+            - output_type: execute_result
+              execution_count: 97
+              data:
+                application/vnd.deepnote.dataframe.v3+json:
+                  column_count: 3
+                  columns:
+                    - name: airport_code
+                      dtype: object
+                      stats:
+                        unique_count: 3
+                        nan_count: 0
+                        min: null
+                        max: null
+                        histogram: null
+                        categories:
+                          - name: AMP
+                            count: 1
+                          - name: NSA
+                            count: 1
+                          - name: FKT
+                            count: 1
+                    - name: airport_name
+                      dtype: object
+                      stats:
+                        unique_count: 3
+                        nan_count: 0
+                        min: null
+                        max: null
+                        histogram: null
+                        categories:
+                          - name: Amazon Mothership
+                            count: 1
+                          - name: Nestland Airport
+                            count: 1
+                          - name: Flocktopia
+                            count: 1
+                    - name: nb_passengers
+                      dtype: int64
+                      stats:
+                        unique_count: 3
+                        nan_count: 0
+                        min: "1685200"
+                        max: "2423400"
+                        histogram:
+                          - bin_start: 1685200
+                            bin_end: 1759020
+                            count: 1
+                          - bin_start: 1759020
+                            bin_end: 1832840
+                            count: 0
+                          - bin_start: 1832840
+                            bin_end: 1906660
+                            count: 0
+                          - bin_start: 1906660
+                            bin_end: 1980480
+                            count: 0
+                          - bin_start: 1980480
+                            bin_end: 2054300
+                            count: 1
+                          - bin_start: 2054300
+                            bin_end: 2128120
+                            count: 0
+                          - bin_start: 2128120
+                            bin_end: 2201940
+                            count: 0
+                          - bin_start: 2201940
+                            bin_end: 2275760
+                            count: 0
+                          - bin_start: 2275760
+                            bin_end: 2349580
+                            count: 0
+                          - bin_start: 2349580
+                            bin_end: 2423400
+                            count: 1
+                        categories: null
+                    - name: _deepnote_index_column
+                      dtype: int64
+                  row_count: 3
+                  preview_row_count: 3
+                  rows:
+                    - airport_code: AMP
+                      airport_name: Amazon Mothership
+                      nb_passengers: 2423400
+                      _deepnote_index_column: 0
+                    - airport_code: NSA
+                      airport_name: Nestland Airport
+                      nb_passengers: 1999700
+                      _deepnote_index_column: 1
+                    - airport_code: FKT
+                      airport_name: Flocktopia
+                      nb_passengers: 1685200
+                      _deepnote_index_column: 2
+                  type: dataframe
+                text/plain: |2-
+                    airport_code       airport_name  nb_passengers
+                  0          AMP  Amazon Mothership        2423400
+                  1          NSA   Nestland Airport        1999700
+                  2          FKT         Flocktopia        1685200
+                text/html: |-
+                  <div>
+                  <style scoped>
+                      .dataframe tbody tr th:only-of-type {
+                          vertical-align: middle;
+                      }
+
+                      .dataframe tbody tr th {
+                          vertical-align: top;
+                      }
+
+                      .dataframe thead th {
+                          text-align: right;
+                      }
+                  </style>
+                  <table border="1" class="dataframe">
+                    <thead>
+                      <tr style="text-align: right;">
+                        <th></th>
+                        <th>airport_code</th>
+                        <th>airport_name</th>
+                        <th>nb_passengers</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>0</th>
+                        <td>AMP</td>
+                        <td>Amazon Mothership</td>
+                        <td>2423400</td>
+                      </tr>
+                      <tr>
+                        <th>1</th>
+                        <td>NSA</td>
+                        <td>Nestland Airport</td>
+                        <td>1999700</td>
+                      </tr>
+                      <tr>
+                        <th>2</th>
+                        <td>FKT</td>
+                        <td>Flocktopia</td>
+                        <td>1685200</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+              metadata:
+                table_state_spec: "{}"
+          sortingKey: v
+          type: sql
+        - blockGroup: 1f67acd920b34dcfa9cc7a8cf881cdb5
+          content: ""
+          executionCount: 298
+          id: 6d4aca639b9549a2895d8fc11a13d7bb
+          metadata:
+            execution_start: 1767198217285
+            execution_millis: 13
+            execution_context_id: dd8c7579-5917-4d85-819e-598913aec215
+            deepnote_variable_name: df_2
+            deepnote_config_collapsed: true
+            deepnote_visualization_spec:
+              layer:
+                - layer:
+                    - layer:
+                        - mark:
+                            clip: true
+                            type: bar
+                            tooltip: false
+                          encoding:
+                            x:
+                              axis:
+                                grid: false
+                                title: Aéroports
+                              sort: null
+                              type: nominal
+                              field: airport_name
+                              scale:
+                                type: linear
+                            y:
+                              axis:
+                                grid: false
+                                title: Nombres de passagers
+                                format:
+                                  type: default
+                                  decimals: null
+                                formatType: numberFormatFromNumberType
+                              type: quantitative
+                              field: nb_passengers
+                              scale:
+                                type: linear
+                                domainMin: 1500000
+                              format:
+                                type: default
+                                decimals: null
+                              formatType: numberFormatFromNumberType
+                            color:
+                              sort: null
+                              type: quantitative
+                              field: nb_passengers
+                              scale:
+                                scheme: deepnote_blues
+                            tooltip:
+                              - type: nominal
+                                field: airport_name
+                              - type: quantitative
+                                field: nb_passengers
+                                format:
+                                  type: default
+                                  decimals: null
+                            xOffset:
+                              datum: series_0
+                          transform: []
+                        - mark:
+                            dx: 0
+                            dy: -1
+                            fill:
+                              expr: valueLabelsColor
+                            type: text
+                            align: center
+                            baseline: bottom
+                          encoding:
+                            x:
+                              axis:
+                                grid: false
+                                title: Aéroports
+                              sort: null
+                              type: nominal
+                              field: airport_name
+                              scale:
+                                type: linear
+                            y:
+                              axis:
+                                grid: false
+                                title: Nombres de passagers
+                                format:
+                                  type: default
+                                  decimals: null
+                                formatType: numberFormatFromNumberType
+                              type: quantitative
+                              field: nb_passengers
+                              scale:
+                                type: linear
+                                domainMin: 1500000
+                              format:
+                                type: default
+                                decimals: null
+                              formatType: numberFormatFromNumberType
+                            text:
+                              type: quantitative
+                              field: nb_passengers
+                            color:
+                              sort: null
+                              type: quantitative
+                              field: nb_passengers
+                              scale:
+                                scheme: deepnote_blues
+                            tooltip:
+                              - type: nominal
+                                field: airport_name
+                              - type: quantitative
+                                field: nb_passengers
+                                format:
+                                  type: default
+                                  decimals: null
+                            xOffset:
+                              datum: series_0
+                          transform: []
+                  resolve:
+                    scale:
+                      color: independent
+              title: Quel aéroport a été le plus emprunté par les passagers ?
+              config:
+                legend:
+                  orient: bottom
+                  disable: false
+              params:
+                - name: valueLabelsColor
+                  value: black
+              $schema: https://vega.github.io/schema/vega-lite/v5.json
+              encoding: {}
+              usermeta:
+                seriesNames:
+                  - Series
+                seriesOrder:
+                  - 0
+                specSchemaVersion: 2
+                tooltipDefaultMode: false
+          outputs:
+            - output_type: execute_result
+              execution_count: 298
+              data:
+                application/vnd.vega.v5+json:
+                  $schema: https://vega.github.io/schema/vega/v5.json
+                  data:
+                    - name: legend_size_0_store
+                    - name: legend_color_0_store
+                    - name: interval_selection_store
+                    - name: legend_size_0_0_store
+                    - name: legend_color_0_0_store
+                    - name: source_0
+                    - name: data_0
+                      values:
+                        - airport_code: AMP
+                          airport_name: Amazon Mothership
+                          nb_passengers: 2423400
+                          _deepnote_index_column: 0
+                          nb_passengers_end: 2423400
+                          nb_passengers_start: 0
+                        - airport_code: NSA
+                          airport_name: Nestland Airport
+                          nb_passengers: 1999700
+                          _deepnote_index_column: 1
+                          nb_passengers_end: 1999700
+                          nb_passengers_start: 0
+                        - airport_code: FKT
+                          airport_name: Flocktopia
+                          nb_passengers: 1685200
+                          _deepnote_index_column: 2
+                          nb_passengers_end: 1685200
+                          nb_passengers_start: 0
+                    - name: data_1
+                      values:
+                        - airport_name: Amazon Mothership
+                          nb_passengers: 2423400
+                        - airport_name: Nestland Airport
+                          nb_passengers: 1999700
+                        - airport_name: Flocktopia
+                          nb_passengers: 1685200
+                    - name: data_0_x_domain_airport_name_0
+                      values:
+                        - airport_name: Amazon Mothership
+                        - airport_name: Nestland Airport
+                        - airport_name: Flocktopia
+                    - name: data_1_x_domain_airport_name_1
+                      values:
+                        - airport_name: Amazon Mothership
+                        - airport_name: Nestland Airport
+                        - airport_name: Flocktopia
+                  signals:
+                    - name: width
+                      init: "isFinite(containerSize()[0]) ? containerSize()[0] : 200"
+                      on:
+                        - events: window:resize
+                          update: "isFinite(containerSize()[0]) ? containerSize()[0] : 200"
+                    - name: height
+                      init: "isFinite(containerSize()[1]) ? containerSize()[1] : 200"
+                      on:
+                        - events: window:resize
+                          update: "isFinite(containerSize()[1]) ? containerSize()[1] : 200"
+                    - name: legend_color_0_0_nb_passengers_legend
+                      value: null
+                      on:
+                        - events:
+                            - source: view
+                              markname: nb_passengers_legend_symbols
+                              type: click
+                            - source: view
+                              markname: nb_passengers_legend_labels
+                              type: click
+                            - source: view
+                              markname: nb_passengers_legend_entries
+                              type: click
+                          update: "isDefined(datum.value) ? datum.value :
+                            item().items[0].items[0].datum.value"
+                          force: true
+                        - events:
+                            - source: view
+                              type: click
+                          update: "!event.item || !datum ? null : legend_color_0_0_nb_passengers_legend"
+                          force: true
+                    - name: unit
+                      value: {}
+                      on:
+                        - events: pointermove
+                          update: "isTuple(group()) ? group() : unit"
+                    - name: legend_color_0_nb_passengers_legend
+                      value: null
+                      on:
+                        - events:
+                            - source: view
+                              markname: nb_passengers_legend_symbols
+                              type: click
+                            - source: view
+                              markname: nb_passengers_legend_labels
+                              type: click
+                            - source: view
+                              markname: nb_passengers_legend_entries
+                              type: click
+                          update: "isDefined(datum.value) ? datum.value :
+                            item().items[0].items[0].datum.value"
+                          force: true
+                        - events:
+                            - source: view
+                              type: click
+                          update: "!event.item || !datum ? null : legend_color_0_nb_passengers_legend"
+                          force: true
+                    - name: legend_size_0
+                      update: vlSelectionResolve("legend_size_0_store", "union", true, true)
+                    - name: legend_color_0
+                      update: vlSelectionResolve("legend_color_0_store", "union", true, true)
+                    - name: interval_selection
+                      update: vlSelectionResolve("interval_selection_store", "union")
+                    - name: legend_size_0_0
+                      update: vlSelectionResolve("legend_size_0_0_store", "union", true, true)
+                    - name: legend_color_0_0
+                      update: vlSelectionResolve("legend_color_0_0_store", "union", true, true)
+                    - name: valueLabelsColor
+                      value: black
+                    - name: legend_size_0_tuple
+                      on:
+                        - events:
+                            - source: scope
+                              type: click
+                          update: "datum && item().mark.marktype !== 'group' && indexof(item().mark.role,
+                            'legend') < 0 && indexof(item().mark.name,
+                            'interval_selection_brush') < 0 ? {unit:
+                            \"layer_0_layer_0_layer_0\", fields:
+                            legend_size_0_tuple_fields, values: []} : null"
+                          force: true
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "null"
+                    - name: legend_size_0_tuple_fields
+                      value: []
+                    - name: legend_size_0_toggle
+                      value: false
+                      on:
+                        - events:
+                            - source: scope
+                              type: click
+                          update: "true"
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "false"
+                    - name: legend_size_0_modify
+                      on:
+                        - events:
+                            signal: legend_size_0_tuple
+                          update: 'modify("legend_size_0_store", legend_size_0_toggle ? null :
+                            legend_size_0_tuple, legend_size_0_toggle ? null :
+                            true, legend_size_0_toggle ? legend_size_0_tuple :
+                            null)'
+                    - name: legend_color_0_tuple
+                      update: "legend_color_0_nb_passengers_legend !== null ? {fields:
+                        legend_color_0_tuple_fields, values:
+                        [legend_color_0_nb_passengers_legend]} : null"
+                    - name: legend_color_0_tuple_fields
+                      value:
+                        - field: nb_passengers
+                          channel: color
+                          type: E
+                    - name: legend_color_0_toggle
+                      value: false
+                      on:
+                        - events:
+                            merge:
+                              - source: view
+                                type: click
+                          update: "true"
+                    - name: legend_color_0_modify
+                      on:
+                        - events:
+                            signal: legend_color_0_tuple
+                          update: 'modify("legend_color_0_store", legend_color_0_toggle ? null :
+                            legend_color_0_tuple, legend_color_0_toggle ? null :
+                            true, legend_color_0_toggle ? legend_color_0_tuple :
+                            null)'
+                    - name: interval_selection_x
+                      value: []
+                      on:
+                        - events:
+                            source: scope
+                            filter:
+                              - '!event.item || event.item.mark.name !==
+                                "interval_selection_brush"'
+                            type: pointerdown
+                          update: "[x(unit), x(unit)]"
+                        - events:
+                            source: window
+                            between:
+                              - source: scope
+                                filter:
+                                  - '!event.item || event.item.mark.name !==
+                                    "interval_selection_brush"'
+                                type: pointerdown
+                              - source: window
+                                type: pointerup
+                            type: pointermove
+                            consume: true
+                          update: "[interval_selection_x[0], clamp(x(unit), 0, width)]"
+                        - events:
+                            signal: interval_selection_scale_trigger
+                          update: "[0, 0]"
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "[0, 0]"
+                        - events:
+                            signal: interval_selection_translate_delta
+                          update: clampRange(panLinear(interval_selection_translate_anchor.extent_x,
+                            interval_selection_translate_delta.x /
+                            span(interval_selection_translate_anchor.extent_x)),
+                            0, width)
+                        - events:
+                            signal: interval_selection_zoom_delta
+                          update: clampRange(zoomLinear(interval_selection_x,
+                            interval_selection_zoom_anchor.x,
+                            interval_selection_zoom_delta), 0, width)
+                    - name: interval_selection_airport_name
+                      on:
+                        - events:
+                            signal: interval_selection_x
+                          update: 'interval_selection_x[0] === interval_selection_x[1] ? null :
+                            invert("x", interval_selection_x)'
+                    - name: interval_selection_y
+                      value: []
+                      on:
+                        - events:
+                            source: scope
+                            filter:
+                              - '!event.item || event.item.mark.name !==
+                                "interval_selection_brush"'
+                            type: pointerdown
+                          update: "[y(unit), y(unit)]"
+                        - events:
+                            source: window
+                            between:
+                              - source: scope
+                                filter:
+                                  - '!event.item || event.item.mark.name !==
+                                    "interval_selection_brush"'
+                                type: pointerdown
+                              - source: window
+                                type: pointerup
+                            consume: true
+                            type: pointermove
+                          update: "[interval_selection_y[0], clamp(y(unit), 0, height)]"
+                        - events:
+                            signal: interval_selection_scale_trigger
+                          update: '[scale("y", interval_selection_nb_passengers[0]), scale("y",
+                            interval_selection_nb_passengers[1])]'
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "[0, 0]"
+                        - events:
+                            signal: interval_selection_translate_delta
+                          update: clampRange(panLinear(interval_selection_translate_anchor.extent_y,
+                            interval_selection_translate_delta.y /
+                            span(interval_selection_translate_anchor.extent_y)),
+                            0, height)
+                        - events:
+                            signal: interval_selection_zoom_delta
+                          update: clampRange(zoomLinear(interval_selection_y,
+                            interval_selection_zoom_anchor.y,
+                            interval_selection_zoom_delta), 0, height)
+                    - name: interval_selection_nb_passengers
+                      on:
+                        - events:
+                            signal: interval_selection_y
+                          update: 'interval_selection_y[0] === interval_selection_y[1] ? null :
+                            invert("y", interval_selection_y)'
+                    - name: interval_selection_scale_trigger
+                      value: {}
+                      on:
+                        - events:
+                            - scale: x
+                            - scale: y
+                          update: '(!isArray(interval_selection_airport_name) || (invert("x",
+                            interval_selection_x)[0] ===
+                            interval_selection_airport_name[0] && invert("x",
+                            interval_selection_x)[1] ===
+                            interval_selection_airport_name[1])) &&
+                            (!isArray(interval_selection_nb_passengers) ||
+                            (+invert("y", interval_selection_y)[0] ===
+                            +interval_selection_nb_passengers[0] && +invert("y",
+                            interval_selection_y)[1] ===
+                            +interval_selection_nb_passengers[1])) ?
+                            interval_selection_scale_trigger : {}'
+                    - name: interval_selection_tuple
+                      on:
+                        - events:
+                            - signal: interval_selection_airport_name || interval_selection_nb_passengers
+                          update: 'interval_selection_airport_name && interval_selection_nb_passengers ?
+                            {unit: "layer_0_layer_0_layer_0", fields:
+                            interval_selection_tuple_fields, values:
+                            [interval_selection_airport_name,interval_selection_nb_passengers]}
+                            : null'
+                    - name: interval_selection_tuple_fields
+                      value:
+                        - field: airport_name
+                          channel: x
+                          type: E
+                        - field: nb_passengers
+                          channel: y
+                          type: R
+                    - name: interval_selection_translate_anchor
+                      value: {}
+                      on:
+                        - events:
+                            - source: scope
+                              markname: interval_selection_brush
+                              type: pointerdown
+                          update: "{x: x(unit), y: y(unit), extent_x: slice(interval_selection_x),
+                            extent_y: slice(interval_selection_y)}"
+                    - name: interval_selection_translate_delta
+                      value: {}
+                      on:
+                        - events:
+                            - source: window
+                              between:
+                                - source: scope
+                                  markname: interval_selection_brush
+                                  type: pointerdown
+                                - source: window
+                                  type: pointerup
+                              consume: true
+                              type: pointermove
+                          update: "{x: interval_selection_translate_anchor.x - x(unit), y:
+                            interval_selection_translate_anchor.y - y(unit)}"
+                    - name: interval_selection_zoom_anchor
+                      on:
+                        - events:
+                            - source: scope
+                              markname: interval_selection_brush
+                              consume: true
+                              type: wheel
+                          update: "{x: x(unit), y: y(unit)}"
+                    - name: interval_selection_zoom_delta
+                      on:
+                        - events:
+                            - source: scope
+                              markname: interval_selection_brush
+                              type: wheel
+                              consume: true
+                          update: pow(1.001, event.deltaY * pow(16, event.deltaMode))
+                          force: true
+                    - name: interval_selection_modify
+                      on:
+                        - events:
+                            signal: interval_selection_tuple
+                          update: modify("interval_selection_store", interval_selection_tuple, true)
+                    - name: legend_size_0_0_tuple
+                      on:
+                        - events:
+                            - source: scope
+                              type: click
+                          update: "datum && item().mark.marktype !== 'group' && indexof(item().mark.role,
+                            'legend') < 0 ? {unit: \"layer_0_layer_0_layer_1\",
+                            fields: legend_size_0_0_tuple_fields, values: []} :
+                            null"
+                          force: true
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "null"
+                    - name: legend_size_0_0_tuple_fields
+                      value: []
+                    - name: legend_size_0_0_toggle
+                      value: false
+                      on:
+                        - events:
+                            - source: scope
+                              type: click
+                          update: "true"
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "false"
+                    - name: legend_size_0_0_modify
+                      on:
+                        - events:
+                            signal: legend_size_0_0_tuple
+                          update: 'modify("legend_size_0_0_store", legend_size_0_0_toggle ? null :
+                            legend_size_0_0_tuple, legend_size_0_0_toggle ? null
+                            : true, legend_size_0_0_toggle ?
+                            legend_size_0_0_tuple : null)'
+                    - name: legend_color_0_0_tuple
+                      update: "legend_color_0_0_nb_passengers_legend !== null ? {fields:
+                        legend_color_0_0_tuple_fields, values:
+                        [legend_color_0_0_nb_passengers_legend]} : null"
+                    - name: legend_color_0_0_tuple_fields
+                      value:
+                        - field: nb_passengers
+                          channel: color
+                          type: E
+                    - name: legend_color_0_0_toggle
+                      value: false
+                      on:
+                        - events:
+                            merge:
+                              - source: view
+                                type: click
+                          update: "true"
+                    - name: legend_color_0_0_modify
+                      on:
+                        - events:
+                            signal: legend_color_0_0_tuple
+                          update: 'modify("legend_color_0_0_store", legend_color_0_0_toggle ? null :
+                            legend_color_0_0_tuple, legend_color_0_0_toggle ?
+                            null : true, legend_color_0_0_toggle ?
+                            legend_color_0_0_tuple : null)'
+                  marks:
+                    - type: rect
+                      name: interval_selection_brush_bg
+                      encode:
+                        update:
+                          x:
+                            - signal: interval_selection_x[0]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          y:
+                            - signal: interval_selection_y[0]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          y2:
+                            - signal: interval_selection_y[1]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          x2:
+                            - signal: interval_selection_x[1]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                        enter:
+                          fill:
+                            value: "#333"
+                          fillOpacity:
+                            value: 0.125
+                      clip: true
+                    - type: rect
+                      name: layer_0_layer_0_layer_0_marks
+                      from:
+                        data: data_0
+                      encode:
+                        update:
+                          x:
+                            field: airport_name
+                            scale: x
+                            offset:
+                              value: series_0
+                              scale: xOffset
+                          y:
+                            field: nb_passengers_end
+                            scale: y
+                          opacity:
+                            - value: 1
+                              test: (!length(data("legend_size_0_store")) ||
+                                vlSelectionTest("legend_size_0_store", datum))
+                                && (!length(data("legend_color_0_store")) ||
+                                vlSelectionTest("legend_color_0_store", datum))
+                                && (!length(data("interval_selection_store")) ||
+                                vlSelectionTest("interval_selection_store",
+                                datum))
+                            - value: 0.2
+                          tooltip:
+                            signal: '{"airport_name": isValid(datum["airport_name"]) ? datum["airport_name"]
+                              : ""+datum["airport_name"], "nb_passengers":
+                              format(datum["nb_passengers"], "")}'
+                          y2:
+                            field: nb_passengers_start
+                            scale: y
+                          fill:
+                            field: nb_passengers
+                            scale: layer_0_layer_0_color
+                          width:
+                            signal: max(0.25, bandwidth('xOffset'))
+                      clip: true
+                      style:
+                        - bar
+                      interactive: true
+                    - type: text
+                      name: layer_0_layer_0_layer_1_marks
+                      from:
+                        data: data_1
+                      encode:
+                        update:
+                          align:
+                            value: center
+                          x:
+                            field: airport_name
+                            scale: x
+                            offset:
+                              value: series_0
+                              scale: xOffset
+                              band: 0.5
+                          fill:
+                            signal: valueLabelsColor
+                          text:
+                            signal: format(datum["nb_passengers"], "")
+                          y:
+                            field: nb_passengers
+                            scale: y
+                          dx:
+                            value: 0
+                          baseline:
+                            value: bottom
+                          tooltip:
+                            signal: '{"airport_name": isValid(datum["airport_name"]) ? datum["airport_name"]
+                              : ""+datum["airport_name"], "nb_passengers":
+                              format(datum["nb_passengers"], "")}'
+                          dy:
+                            value: -1
+                      interactive: true
+                      style:
+                        - text
+                    - type: rect
+                      name: interval_selection_brush
+                      encode:
+                        update:
+                          stroke:
+                            - value: white
+                              test: interval_selection_x[0] !== interval_selection_x[1] &&
+                                interval_selection_y[0] !==
+                                interval_selection_y[1]
+                            - {}
+                          x2:
+                            - signal: interval_selection_x[1]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          x:
+                            - signal: interval_selection_x[0]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          y:
+                            - signal: interval_selection_y[0]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          y2:
+                            - signal: interval_selection_y[1]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                        enter:
+                          cursor:
+                            value: move
+                          fill:
+                            value: transparent
+                      clip: true
+                  scales:
+                    - name: x
+                      type: band
+                      domain:
+                        fields:
+                          - data: data_0_x_domain_airport_name_0
+                            field: airport_name
+                          - data: data_1_x_domain_airport_name_1
+                            field: airport_name
+                      range:
+                        - 0
+                        - signal: width
+                      paddingInner: 0.2
+                      paddingOuter: 0.2
+                    - name: y
+                      type: linear
+                      domain:
+                        fields:
+                          - data: data_0
+                            field: nb_passengers_start
+                          - data: data_0
+                            field: nb_passengers_end
+                          - data: data_1
+                            field: nb_passengers
+                      range:
+                        - signal: height
+                        - 0
+                      domainMin: 1500000
+                      zero: true
+                    - name: xOffset
+                      type: band
+                      domain:
+                        - series_0
+                      range:
+                        - 0
+                        - signal: bandwidth('x')
+                    - name: layer_0_layer_0_color
+                      type: linear
+                      domain:
+                        fields:
+                          - data: data_0
+                            field: nb_passengers
+                          - data: data_1
+                            field: nb_passengers
+                      range:
+                        scheme: deepnote_blues
+                      interpolate: hcl
+                      zero: false
+                  axes:
+                    - scale: x
+                      title: Aéroports
+                      labelAngle: 270
+                      grid: false
+                      orient: bottom
+                      labelAlign: right
+                      labelBaseline: middle
+                      zindex: 0
+                    - scale: y
+                      labelOverlap: true
+                      orient: left
+                      tickCount: 5
+                      encode:
+                        labels:
+                          update:
+                            text:
+                              signal: numberFormatFromNumberType(datum.value,
+                                {"decimals":null,"type":"default"})
+                      zindex: 0
+                      grid: false
+                      title: Nombres de passagers
+                  title:
+                    text: Quel aéroport a été le plus emprunté par les passagers ?
+                    frame: group
+                  usermeta:
+                    tooltipDefaultMode: false
+                    seriesNames:
+                      - Series
+                    specSchemaVersion: 2
+                    seriesOrder:
+                      - 0
+                    outputMetadata:
+                      rowLimitExceeded: false
+                      rowLimit: 5000
+                      filteredDataframeSize: 3
+                      columns:
+                        - name: airport_code
+                          nativeType: object
+                          distinctValues:
+                            - AMP
+                            - FKT
+                            - NSA
+                        - name: airport_name
+                          nativeType: object
+                          distinctValues:
+                            - Amazon Mothership
+                            - Flocktopia
+                            - Nestland Airport
+                        - name: nb_passengers
+                          nativeType: int64
+                          distinctValues:
+                            - 1685200
+                            - 1999700
+                            - 2423400
+                  padding: 5
+                  autosize:
+                    type: fit
+                    contains: padding
+                  background: white
+                  style: cell
+                  config:
+                    customFormatTypes: true
+                    legend:
+                      orient: bottom
+                      disable: false
+                  legends:
+                    - fill: layer_0_layer_0_color
+                      direction: horizontal
+                      gradientLength:
+                        signal: clamp(width, 100, 200)
+                      title: nb_passengers
+                      encode:
+                        labels:
+                          name: nb_passengers_legend_labels
+                          interactive: true
+                          update:
+                            opacity:
+                              - test: (!length(data("legend_color_0_store")) || (legend_color_0["nb_passengers"]
+                                  && indexof(legend_color_0["nb_passengers"],
+                                  datum.value) >= 0))
+                                value: 1
+                              - value: 0.35
+                        gradient:
+                          name: nb_passengers_legend_gradient
+                          interactive: true
+                          update:
+                            opacity:
+                              value: 1
+                        entries:
+                          name: nb_passengers_legend_entries
+                          interactive: true
+                          update:
+                            fill:
+                              value: transparent
+                text/plain: <deepnote_toolkit.chart.deepnote_chart.DeepnoteChart at
+                  0x7f7cd46ac3d0>
+              metadata: {}
+          sortingKey: x
+          type: visualization
+        - blockGroup: c886fb159a674cc69769e62a009ed215
+          content: >-
+            WITH airline_year_rpm AS (
+                            SELECT
+                                al.airline_name,
+                                EXTRACT(year FROM fs.date) AS flight_year,
+                                SUM(fs.rpm_total) AS total_rpm,
+                                SUM(COALESCE(fs.rpm_domestic, 0)) AS total_rpm_domestic,
+                                SUM(COALESCE(fs.rpm_international, 0)) AS total_rpm_international
+                            FROM analytics.aircraft.dim_airline al
+                            LEFT JOIN analytics.aircraft.fct_flight_summary fs 
+                                ON al.airline_code = fs.airline_code
+                            GROUP BY 1, 2
+                        ),
+
+                        best_rpm AS (
+                            SELECT *
+                            FROM airline_year_rpm a
+                            WHERE total_rpm = (
+                                SELECT MAX(total_rpm)
+                                FROM airline_year_rpm
+                                WHERE airline_name = a.airline_name
+                            )
+                        )
+
+                        SELECT
+                            airline_name,
+                            flight_year AS best_year,
+                            total_rpm,
+                            total_rpm_domestic,
+                            total_rpm_international
+                        FROM best_rpm
+                        ORDER BY airline_name;
+          executionCount: 301
+          id: 8585fcd077e542979ad7deabeb01ec60
+          metadata:
+            execution_start: 1767198318718
+            execution_millis: 4398
+            sql_integration_id: 1d4e6ac3-7a9b-428f-bd7b-9f7e975e2bcf
+            execution_context_id: dd8c7579-5917-4d85-819e-598913aec215
+            deepnote_variable_name: df_3
+          outputs:
+            - data:
+                application/vnd.deepnote.sql-output-metadata+json:
+                  status: success_no_cache
+                  size_in_bytes: 436
+                  compiled_query: |-
+                    WITH airline_year_rpm AS (
+                                    SELECT
+                                        al.airline_name,
+                                        EXTRACT(year FROM fs.date) AS flight_year,
+                                        SUM(fs.rpm_total) AS total_rpm,
+                                        SUM(COALESCE(fs.rpm_domestic, 0)) AS total_rpm_domestic,
+                                        SUM(COALESCE(fs.rpm_international, 0)) AS total_rpm_international
+                                    FROM analytics.aircraft.dim_airline al
+                                    LEFT JOIN analytics.aircraft.fct_flight_summary fs 
+                                        ON al.airline_code = fs.airline_code
+                                    GROUP BY 1, 2
+                                ),
+
+                                best_rpm AS (
+                                    SELECT *
+                                    FROM airline_year_rpm a
+                                    WHERE total_rpm = (
+                                        SELECT MAX(total_rpm)
+                                        FROM airline_year_rpm
+                                        WHERE airline_name = a.airline_name
+                                    )
+                                )
+
+                                SELECT
+                                    airline_name,
+                                    flight_year AS best_year,
+                                    total_rpm,
+                                    total_rpm_domestic,
+                                    total_rpm_international
+                                FROM best_rpm
+                                ORDER BY airline_name
+                    /* {"app":"deepnote","submitted_by":"user","user_email":"maxime.breuillard@orange.fr","workspace_id":"6704ce44-89db-434c-a146-cd791f7ac4e6","project_id":"46d433ee-a18b-4fb7-bdda-a5242bede5ce","notebook_id":"f41edbb04e404c22a18d48518c1558eb","project_url":"https://deepnote.com/project/46d433ee-a18b-4fb7-bdda-a5242bede5ce"} */;
+                  variable_type: dataframe
+                  integration_id: 1d4e6ac3-7a9b-428f-bd7b-9f7e975e2bcf
+              metadata: {}
+              output_type: display_data
+            - output_type: execute_result
+              execution_count: 301
+              data:
+                application/vnd.deepnote.dataframe.v3+json:
+                  column_count: 5
+                  columns:
+                    - name: airline_name
+                      dtype: object
+                      stats:
+                        unique_count: 3
+                        nan_count: 0
+                        min: null
+                        max: null
+                        histogram: null
+                        categories:
+                          - name: Amazon Airlines
+                            count: 1
+                          - name: Flock Air
+                            count: 1
+                          - name: Goose Airways
+                            count: 1
+                    - name: best_year
+                      dtype: int64
+                      stats:
+                        unique_count: 2
+                        nan_count: 0
+                        min: "2015"
+                        max: "2016"
+                        histogram:
+                          - bin_start: 2015
+                            bin_end: 2015.1
+                            count: 1
+                          - bin_start: 2015.1
+                            bin_end: 2015.2
+                            count: 0
+                          - bin_start: 2015.2
+                            bin_end: 2015.3
+                            count: 0
+                          - bin_start: 2015.3
+                            bin_end: 2015.4
+                            count: 0
+                          - bin_start: 2015.4
+                            bin_end: 2015.5
+                            count: 0
+                          - bin_start: 2015.5
+                            bin_end: 2015.6
+                            count: 0
+                          - bin_start: 2015.6
+                            bin_end: 2015.7
+                            count: 0
+                          - bin_start: 2015.7
+                            bin_end: 2015.8
+                            count: 0
+                          - bin_start: 2015.8
+                            bin_end: 2015.9
+                            count: 0
+                          - bin_start: 2015.9
+                            bin_end: 2016
+                            count: 2
+                        categories: null
+                    - name: total_rpm
+                      dtype: float64
+                      stats:
+                        unique_count: 3
+                        nan_count: 0
+                        min: "11912594.0"
+                        max: "49260222.0"
+                        histogram:
+                          - bin_start: 11912594
+                            bin_end: 15647356.8
+                            count: 1
+                          - bin_start: 15647356.8
+                            bin_end: 19382119.6
+                            count: 1
+                          - bin_start: 19382119.6
+                            bin_end: 23116882.4
+                            count: 0
+                          - bin_start: 23116882.4
+                            bin_end: 26851645.2
+                            count: 0
+                          - bin_start: 26851645.2
+                            bin_end: 30586408
+                            count: 0
+                          - bin_start: 30586408
+                            bin_end: 34321170.8
+                            count: 0
+                          - bin_start: 34321170.8
+                            bin_end: 38055933.599999994
+                            count: 0
+                          - bin_start: 38055933.599999994
+                            bin_end: 41790696.4
+                            count: 0
+                          - bin_start: 41790696.4
+                            bin_end: 45525459.199999996
+                            count: 0
+                          - bin_start: 45525459.199999996
+                            bin_end: 49260222
+                            count: 1
+                        categories: null
+                    - name: total_rpm_domestic
+                      dtype: float64
+                      stats:
+                        unique_count: 3
+                        nan_count: 0
+                        min: "9175044.0"
+                        max: "34637841.0"
+                        histogram:
+                          - bin_start: 9175044
+                            bin_end: 11721323.7
+                            count: 1
+                          - bin_start: 11721323.7
+                            bin_end: 14267603.4
+                            count: 1
+                          - bin_start: 14267603.4
+                            bin_end: 16813883.1
+                            count: 0
+                          - bin_start: 16813883.1
+                            bin_end: 19360162.8
+                            count: 0
+                          - bin_start: 19360162.8
+                            bin_end: 21906442.5
+                            count: 0
+                          - bin_start: 21906442.5
+                            bin_end: 24452722.200000003
+                            count: 0
+                          - bin_start: 24452722.200000003
+                            bin_end: 26999001.900000002
+                            count: 0
+                          - bin_start: 26999001.900000002
+                            bin_end: 29545281.6
+                            count: 0
+                          - bin_start: 29545281.6
+                            bin_end: 32091561.3
+                            count: 0
+                          - bin_start: 32091561.3
+                            bin_end: 34637841
+                            count: 1
+                        categories: null
+                    - name: total_rpm_international
+                      dtype: float64
+                      stats:
+                        unique_count: 3
+                        nan_count: 0
+                        min: "2737550.0"
+                        max: "14622381.0"
+                        histogram:
+                          - bin_start: 2737550
+                            bin_end: 3926033.1
+                            count: 2
+                          - bin_start: 3926033.1
+                            bin_end: 5114516.2
+                            count: 0
+                          - bin_start: 5114516.2
+                            bin_end: 6302999.300000001
+                            count: 0
+                          - bin_start: 6302999.300000001
+                            bin_end: 7491482.4
+                            count: 0
+                          - bin_start: 7491482.4
+                            bin_end: 8679965.5
+                            count: 0
+                          - bin_start: 8679965.5
+                            bin_end: 9868448.600000001
+                            count: 0
+                          - bin_start: 9868448.600000001
+                            bin_end: 11056931.700000001
+                            count: 0
+                          - bin_start: 11056931.700000001
+                            bin_end: 12245414.8
+                            count: 0
+                          - bin_start: 12245414.8
+                            bin_end: 13433897.9
+                            count: 0
+                          - bin_start: 13433897.9
+                            bin_end: 14622381
+                            count: 1
+                        categories: null
+                    - name: _deepnote_index_column
+                      dtype: int64
+                  row_count: 3
+                  preview_row_count: 3
+                  rows:
+                    - airline_name: Amazon Airlines
+                      best_year: 2015
+                      total_rpm: 11912594
+                      total_rpm_domestic: 9175044
+                      total_rpm_international: 2737550
+                      _deepnote_index_column: 0
+                    - airline_name: Flock Air
+                      best_year: 2016
+                      total_rpm: 17318668
+                      total_rpm_domestic: 13405774
+                      total_rpm_international: 3912894
+                      _deepnote_index_column: 1
+                    - airline_name: Goose Airways
+                      best_year: 2016
+                      total_rpm: 49260222
+                      total_rpm_domestic: 34637841
+                      total_rpm_international: 14622381
+                      _deepnote_index_column: 2
+                  type: dataframe
+                text/plain: |2-
+                        airline_name  best_year   total_rpm  total_rpm_domestic  \
+                  0  Amazon Airlines       2015  11912594.0           9175044.0   
+                  1        Flock Air       2016  17318668.0          13405774.0   
+                  2    Goose Airways       2016  49260222.0          34637841.0   
+
+                     total_rpm_international  
+                  0                2737550.0  
+                  1                3912894.0  
+                  2               14622381.0  
+                text/html: |-
+                  <div>
+                  <style scoped>
+                      .dataframe tbody tr th:only-of-type {
+                          vertical-align: middle;
+                      }
+
+                      .dataframe tbody tr th {
+                          vertical-align: top;
+                      }
+
+                      .dataframe thead th {
+                          text-align: right;
+                      }
+                  </style>
+                  <table border="1" class="dataframe">
+                    <thead>
+                      <tr style="text-align: right;">
+                        <th></th>
+                        <th>airline_name</th>
+                        <th>best_year</th>
+                        <th>total_rpm</th>
+                        <th>total_rpm_domestic</th>
+                        <th>total_rpm_international</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>0</th>
+                        <td>Amazon Airlines</td>
+                        <td>2015</td>
+                        <td>11912594.0</td>
+                        <td>9175044.0</td>
+                        <td>2737550.0</td>
+                      </tr>
+                      <tr>
+                        <th>1</th>
+                        <td>Flock Air</td>
+                        <td>2016</td>
+                        <td>17318668.0</td>
+                        <td>13405774.0</td>
+                        <td>3912894.0</td>
+                      </tr>
+                      <tr>
+                        <th>2</th>
+                        <td>Goose Airways</td>
+                        <td>2016</td>
+                        <td>49260222.0</td>
+                        <td>34637841.0</td>
+                        <td>14622381.0</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+              metadata:
+                table_state_spec: "{}"
+          sortingKey: y
+          type: sql
+        - blockGroup: 3e6df41e923340a18925abecf572ca92
+          content: ""
+          executionCount: 382
+          id: 92004fc2c69942a4b33c29edc1c36065
+          metadata:
+            execution_start: 1767198670846
+            execution_millis: 12
+            execution_context_id: dd8c7579-5917-4d85-819e-598913aec215
+            deepnote_variable_name: df_3
+            deepnote_config_collapsed: true
+            deepnote_visualization_spec:
+              layer:
+                - layer:
+                    - layer:
+                        - mark:
+                            clip: true
+                            type: bar
+                            tooltip: true
+                          encoding:
+                            x:
+                              axis:
+                                title: Compagnie aérienne
+                              sort: ascending
+                              type: nominal
+                              field: airline_name
+                              scale:
+                                type: linear
+                            y:
+                              axis:
+                                title: Années
+                                format:
+                                  type: default
+                                  decimals: null
+                                formatType: numberFormatFromNumberType
+                              type: quantitative
+                              field: best_year
+                              scale:
+                                type: linear
+                                domainMax: 2018
+                                domainMin: 2010
+                              format:
+                                type: default
+                                decimals: null
+                              formatType: numberFormatFromNumberType
+                            color:
+                              sort: null
+                              type: quantitative
+                              field: total_rpm
+                              scale:
+                                scheme: deepnote_blues
+                              aggregate: sum
+                            xOffset:
+                              datum: series_0
+                          transform: []
+                        - mark:
+                            dx: 0
+                            dy: -1
+                            fill:
+                              expr: valueLabelsColor
+                            type: text
+                            align: center
+                            baseline: bottom
+                          encoding:
+                            x:
+                              axis:
+                                title: Compagnie aérienne
+                              sort: ascending
+                              type: nominal
+                              field: airline_name
+                              scale:
+                                type: linear
+                            y:
+                              axis:
+                                title: Années
+                                format:
+                                  type: default
+                                  decimals: null
+                                formatType: numberFormatFromNumberType
+                              type: quantitative
+                              field: best_year
+                              scale:
+                                type: linear
+                                domainMax: 2018
+                                domainMin: 2010
+                              format:
+                                type: default
+                                decimals: null
+                              formatType: numberFormatFromNumberType
+                            text:
+                              type: quantitative
+                              field: best_year
+                            color:
+                              sort: null
+                              type: quantitative
+                              field: total_rpm
+                              scale:
+                                scheme: deepnote_blues
+                              aggregate: sum
+                            xOffset:
+                              datum: series_0
+                          transform: []
+                  resolve:
+                    scale:
+                      color: independent
+              title: Quelle a été la meilleure année en RPM pour chaque compagnie aérienne ?
+              config:
+                legend:
+                  orient: bottom
+                  disable: false
+              params:
+                - name: valueLabelsColor
+                  value: black
+              $schema: https://vega.github.io/schema/vega-lite/v5.json
+              encoding: {}
+              usermeta:
+                seriesNames:
+                  - best_year
+                seriesOrder:
+                  - 0
+                specSchemaVersion: 2
+                tooltipDefaultMode: true
+          outputs:
+            - output_type: execute_result
+              execution_count: 382
+              data:
+                application/vnd.vega.v5+json:
+                  $schema: https://vega.github.io/schema/vega/v5.json
+                  data:
+                    - name: legend_size_0_store
+                    - name: legend_color_0_store
+                    - name: interval_selection_store
+                    - name: legend_size_0_0_store
+                    - name: legend_color_0_0_store
+                    - name: source_0
+                      values:
+                        - airline_name: Amazon Airlines
+                          best_year: 2015
+                          sum_total_rpm: 11912594
+                        - airline_name: Flock Air
+                          best_year: 2016
+                          sum_total_rpm: 17318668
+                        - airline_name: Goose Airways
+                          best_year: 2016
+                          sum_total_rpm: 49260222
+                    - name: source_0_x_domain_airline_name
+                      values:
+                        - airline_name: Amazon Airlines
+                        - airline_name: Flock Air
+                        - airline_name: Goose Airways
+                    - name: source_0_y_domain_best_year
+                      values:
+                        - min: 2015
+                          max: 2016
+                    - name: source_0_layer_0_layer_0_color_domain_sum_total_rpm
+                      values:
+                        - min: 11912594
+                          max: 49260222
+                  signals:
+                    - name: width
+                      init: "isFinite(containerSize()[0]) ? containerSize()[0] : 200"
+                      on:
+                        - events: window:resize
+                          update: "isFinite(containerSize()[0]) ? containerSize()[0] : 200"
+                    - name: height
+                      init: "isFinite(containerSize()[1]) ? containerSize()[1] : 200"
+                      on:
+                        - events: window:resize
+                          update: "isFinite(containerSize()[1]) ? containerSize()[1] : 200"
+                    - name: unit
+                      value: {}
+                      on:
+                        - events: pointermove
+                          update: "isTuple(group()) ? group() : unit"
+                    - name: legend_size_0
+                      update: vlSelectionResolve("legend_size_0_store", "union", true, true)
+                    - name: legend_color_0
+                      update: vlSelectionResolve("legend_color_0_store", "union", true, true)
+                    - name: interval_selection
+                      update: vlSelectionResolve("interval_selection_store", "union")
+                    - name: legend_size_0_0
+                      update: vlSelectionResolve("legend_size_0_0_store", "union", true, true)
+                    - name: legend_color_0_0
+                      update: vlSelectionResolve("legend_color_0_0_store", "union", true, true)
+                    - name: valueLabelsColor
+                      value: black
+                    - name: legend_size_0_tuple
+                      on:
+                        - events:
+                            - source: scope
+                              type: click
+                          update: "datum && item().mark.marktype !== 'group' && indexof(item().mark.role,
+                            'legend') < 0 && indexof(item().mark.name,
+                            'interval_selection_brush') < 0 ? {unit:
+                            \"layer_0_layer_0_layer_0\", fields:
+                            legend_size_0_tuple_fields, values: []} : null"
+                          force: true
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "null"
+                    - name: legend_size_0_tuple_fields
+                      value: []
+                    - name: legend_size_0_toggle
+                      value: false
+                      on:
+                        - events:
+                            - source: scope
+                              type: click
+                          update: "true"
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "false"
+                    - name: legend_size_0_modify
+                      on:
+                        - events:
+                            signal: legend_size_0_tuple
+                          update: 'modify("legend_size_0_store", legend_size_0_toggle ? null :
+                            legend_size_0_tuple, legend_size_0_toggle ? null :
+                            true, legend_size_0_toggle ? legend_size_0_tuple :
+                            null)'
+                    - name: legend_color_0_tuple
+                      on:
+                        - events:
+                            - source: scope
+                              type: click
+                          update: "datum && item().mark.marktype !== 'group' && indexof(item().mark.role,
+                            'legend') < 0 && indexof(item().mark.name,
+                            'interval_selection_brush') < 0 ? {unit:
+                            \"layer_0_layer_0_layer_0\", fields:
+                            legend_color_0_tuple_fields, values: []} : null"
+                          force: true
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "null"
+                    - name: legend_color_0_tuple_fields
+                      value: []
+                    - name: legend_color_0_toggle
+                      value: false
+                      on:
+                        - events:
+                            - source: scope
+                              type: click
+                          update: "true"
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "false"
+                    - name: legend_color_0_modify
+                      on:
+                        - events:
+                            signal: legend_color_0_tuple
+                          update: 'modify("legend_color_0_store", legend_color_0_toggle ? null :
+                            legend_color_0_tuple, legend_color_0_toggle ? null :
+                            true, legend_color_0_toggle ? legend_color_0_tuple :
+                            null)'
+                    - name: interval_selection_x
+                      value: []
+                      on:
+                        - events:
+                            source: scope
+                            filter:
+                              - '!event.item || event.item.mark.name !==
+                                "interval_selection_brush"'
+                            type: pointerdown
+                          update: "[x(unit), x(unit)]"
+                        - events:
+                            source: window
+                            between:
+                              - source: scope
+                                filter:
+                                  - '!event.item || event.item.mark.name !==
+                                    "interval_selection_brush"'
+                                type: pointerdown
+                              - source: window
+                                type: pointerup
+                            consume: true
+                            type: pointermove
+                          update: "[interval_selection_x[0], clamp(x(unit), 0, width)]"
+                        - events:
+                            signal: interval_selection_scale_trigger
+                          update: "[0, 0]"
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "[0, 0]"
+                        - events:
+                            signal: interval_selection_translate_delta
+                          update: clampRange(panLinear(interval_selection_translate_anchor.extent_x,
+                            interval_selection_translate_delta.x /
+                            span(interval_selection_translate_anchor.extent_x)),
+                            0, width)
+                        - events:
+                            signal: interval_selection_zoom_delta
+                          update: clampRange(zoomLinear(interval_selection_x,
+                            interval_selection_zoom_anchor.x,
+                            interval_selection_zoom_delta), 0, width)
+                    - name: interval_selection_airline_name
+                      on:
+                        - events:
+                            signal: interval_selection_x
+                          update: 'interval_selection_x[0] === interval_selection_x[1] ? null :
+                            invert("x", interval_selection_x)'
+                    - name: interval_selection_y
+                      value: []
+                      on:
+                        - events:
+                            source: scope
+                            filter:
+                              - '!event.item || event.item.mark.name !==
+                                "interval_selection_brush"'
+                            type: pointerdown
+                          update: "[y(unit), y(unit)]"
+                        - events:
+                            source: window
+                            between:
+                              - source: scope
+                                filter:
+                                  - '!event.item || event.item.mark.name !==
+                                    "interval_selection_brush"'
+                                type: pointerdown
+                              - source: window
+                                type: pointerup
+                            consume: true
+                            type: pointermove
+                          update: "[interval_selection_y[0], clamp(y(unit), 0, height)]"
+                        - events:
+                            signal: interval_selection_scale_trigger
+                          update: '[scale("y", interval_selection_best_year[0]), scale("y",
+                            interval_selection_best_year[1])]'
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "[0, 0]"
+                        - events:
+                            signal: interval_selection_translate_delta
+                          update: clampRange(panLinear(interval_selection_translate_anchor.extent_y,
+                            interval_selection_translate_delta.y /
+                            span(interval_selection_translate_anchor.extent_y)),
+                            0, height)
+                        - events:
+                            signal: interval_selection_zoom_delta
+                          update: clampRange(zoomLinear(interval_selection_y,
+                            interval_selection_zoom_anchor.y,
+                            interval_selection_zoom_delta), 0, height)
+                    - name: interval_selection_best_year
+                      on:
+                        - events:
+                            signal: interval_selection_y
+                          update: 'interval_selection_y[0] === interval_selection_y[1] ? null :
+                            invert("y", interval_selection_y)'
+                    - name: interval_selection_scale_trigger
+                      value: {}
+                      on:
+                        - events:
+                            - scale: x
+                            - scale: y
+                          update: '(!isArray(interval_selection_airline_name) || (invert("x",
+                            interval_selection_x)[0] ===
+                            interval_selection_airline_name[0] && invert("x",
+                            interval_selection_x)[1] ===
+                            interval_selection_airline_name[1])) &&
+                            (!isArray(interval_selection_best_year) ||
+                            (+invert("y", interval_selection_y)[0] ===
+                            +interval_selection_best_year[0] && +invert("y",
+                            interval_selection_y)[1] ===
+                            +interval_selection_best_year[1])) ?
+                            interval_selection_scale_trigger : {}'
+                    - name: interval_selection_tuple
+                      on:
+                        - events:
+                            - signal: interval_selection_airline_name || interval_selection_best_year
+                          update: 'interval_selection_airline_name && interval_selection_best_year ?
+                            {unit: "layer_0_layer_0_layer_0", fields:
+                            interval_selection_tuple_fields, values:
+                            [interval_selection_airline_name,interval_selection_best_year]}
+                            : null'
+                    - name: interval_selection_tuple_fields
+                      value:
+                        - field: airline_name
+                          channel: x
+                          type: E
+                        - field: best_year
+                          channel: y
+                          type: R
+                    - name: interval_selection_translate_anchor
+                      value: {}
+                      on:
+                        - events:
+                            - source: scope
+                              markname: interval_selection_brush
+                              type: pointerdown
+                          update: "{x: x(unit), y: y(unit), extent_x: slice(interval_selection_x),
+                            extent_y: slice(interval_selection_y)}"
+                    - name: interval_selection_translate_delta
+                      value: {}
+                      on:
+                        - events:
+                            - source: window
+                              between:
+                                - source: scope
+                                  markname: interval_selection_brush
+                                  type: pointerdown
+                                - source: window
+                                  type: pointerup
+                              consume: true
+                              type: pointermove
+                          update: "{x: interval_selection_translate_anchor.x - x(unit), y:
+                            interval_selection_translate_anchor.y - y(unit)}"
+                    - name: interval_selection_zoom_anchor
+                      on:
+                        - events:
+                            - source: scope
+                              markname: interval_selection_brush
+                              consume: true
+                              type: wheel
+                          update: "{x: x(unit), y: y(unit)}"
+                    - name: interval_selection_zoom_delta
+                      on:
+                        - events:
+                            - source: scope
+                              markname: interval_selection_brush
+                              consume: true
+                              type: wheel
+                          update: pow(1.001, event.deltaY * pow(16, event.deltaMode))
+                          force: true
+                    - name: interval_selection_modify
+                      on:
+                        - events:
+                            signal: interval_selection_tuple
+                          update: modify("interval_selection_store", interval_selection_tuple, true)
+                    - name: legend_size_0_0_tuple
+                      on:
+                        - events:
+                            - source: scope
+                              type: click
+                          update: "datum && item().mark.marktype !== 'group' && indexof(item().mark.role,
+                            'legend') < 0 ? {unit: \"layer_0_layer_0_layer_1\",
+                            fields: legend_size_0_0_tuple_fields, values: []} :
+                            null"
+                          force: true
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "null"
+                    - name: legend_size_0_0_tuple_fields
+                      value: []
+                    - name: legend_size_0_0_toggle
+                      value: false
+                      on:
+                        - events:
+                            - source: scope
+                              type: click
+                          update: "true"
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "false"
+                    - name: legend_size_0_0_modify
+                      on:
+                        - events:
+                            signal: legend_size_0_0_tuple
+                          update: 'modify("legend_size_0_0_store", legend_size_0_0_toggle ? null :
+                            legend_size_0_0_tuple, legend_size_0_0_toggle ? null
+                            : true, legend_size_0_0_toggle ?
+                            legend_size_0_0_tuple : null)'
+                    - name: legend_color_0_0_tuple
+                      on:
+                        - events:
+                            - source: scope
+                              type: click
+                          update: "datum && item().mark.marktype !== 'group' && indexof(item().mark.role,
+                            'legend') < 0 ? {unit: \"layer_0_layer_0_layer_1\",
+                            fields: legend_color_0_0_tuple_fields, values: []} :
+                            null"
+                          force: true
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "null"
+                    - name: legend_color_0_0_tuple_fields
+                      value: []
+                    - name: legend_color_0_0_toggle
+                      value: false
+                      on:
+                        - events:
+                            - source: scope
+                              type: click
+                          update: "true"
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "false"
+                    - name: legend_color_0_0_modify
+                      on:
+                        - events:
+                            signal: legend_color_0_0_tuple
+                          update: 'modify("legend_color_0_0_store", legend_color_0_0_toggle ? null :
+                            legend_color_0_0_tuple, legend_color_0_0_toggle ?
+                            null : true, legend_color_0_0_toggle ?
+                            legend_color_0_0_tuple : null)'
+                  marks:
+                    - type: rect
+                      name: interval_selection_brush_bg
+                      encode:
+                        update:
+                          y:
+                            - signal: interval_selection_y[0]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          x2:
+                            - signal: interval_selection_x[1]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          x:
+                            - signal: interval_selection_x[0]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          y2:
+                            - signal: interval_selection_y[1]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                        enter:
+                          fill:
+                            value: "#333"
+                          fillOpacity:
+                            value: 0.125
+                      clip: true
+                    - type: rect
+                      name: layer_0_layer_0_layer_0_marks
+                      from:
+                        data: source_0
+                      encode:
+                        update:
+                          x:
+                            field: airline_name
+                            scale: x
+                            offset:
+                              value: series_0
+                              scale: xOffset
+                          fill:
+                            field: sum_total_rpm
+                            scale: layer_0_layer_0_color
+                          y2:
+                            value: 0
+                            scale: y
+                          opacity:
+                            - value: 1
+                              test: (!length(data("legend_size_0_store")) ||
+                                vlSelectionTest("legend_size_0_store", datum))
+                                && (!length(data("legend_color_0_store")) ||
+                                vlSelectionTest("legend_color_0_store", datum))
+                                && (!length(data("interval_selection_store")) ||
+                                vlSelectionTest("interval_selection_store",
+                                datum))
+                            - value: 0.2
+                          tooltip:
+                            signal: '{"airline_name": isValid(datum["airline_name"]) ? datum["airline_name"]
+                              : ""+datum["airline_name"], "best_year":
+                              numberFormatFromNumberType(datum["best_year"],
+                              {"decimals":null,"type":"default"}), "Sum of
+                              total_rpm": format(datum["sum_total_rpm"], "")}'
+                          width:
+                            signal: max(0.25, bandwidth('xOffset'))
+                          y:
+                            field: best_year
+                            scale: y
+                      interactive: true
+                      clip: true
+                      style:
+                        - bar
+                    - type: text
+                      name: layer_0_layer_0_layer_1_marks
+                      from:
+                        data: source_0
+                      encode:
+                        update:
+                          text:
+                            signal: format(datum["best_year"], "")
+                          baseline:
+                            value: bottom
+                          x:
+                            field: airline_name
+                            scale: x
+                            offset:
+                              value: series_0
+                              scale: xOffset
+                              band: 0.5
+                          fill:
+                            signal: valueLabelsColor
+                          dx:
+                            value: 0
+                          dy:
+                            value: -1
+                          y:
+                            field: best_year
+                            scale: y
+                          align:
+                            value: center
+                      style:
+                        - text
+                      interactive: true
+                    - type: rect
+                      name: interval_selection_brush
+                      encode:
+                        update:
+                          x:
+                            - signal: interval_selection_x[0]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          stroke:
+                            - value: white
+                              test: interval_selection_x[0] !== interval_selection_x[1] &&
+                                interval_selection_y[0] !==
+                                interval_selection_y[1]
+                            - {}
+                          y:
+                            - signal: interval_selection_y[0]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          y2:
+                            - signal: interval_selection_y[1]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          x2:
+                            - signal: interval_selection_x[1]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                        enter:
+                          fill:
+                            value: transparent
+                          cursor:
+                            value: move
+                      clip: true
+                  scales:
+                    - name: x
+                      type: band
+                      domain:
+                        data: source_0_x_domain_airline_name
+                        field: airline_name
+                        sort: true
+                      range:
+                        - 0
+                        - signal: width
+                      paddingInner: 0.2
+                      paddingOuter: 0.2
+                    - name: y
+                      type: linear
+                      domain:
+                        - signal: (data("source_0_y_domain_best_year")[0] || {}).min
+                        - signal: (data("source_0_y_domain_best_year")[0] || {}).max
+                      range:
+                        - signal: height
+                        - 0
+                      domainMax: 2018
+                      zero: true
+                      domainMin: 2010
+                    - name: xOffset
+                      type: band
+                      domain:
+                        - series_0
+                      range:
+                        - 0
+                        - signal: bandwidth('x')
+                    - name: layer_0_layer_0_color
+                      type: linear
+                      domain:
+                        - signal: (data("source_0_layer_0_layer_0_color_domain_sum_total_rpm")[0] ||
+                            {}).min
+                        - signal: (data("source_0_layer_0_layer_0_color_domain_sum_total_rpm")[0] ||
+                            {}).max
+                      range:
+                        scheme: deepnote_blues
+                      interpolate: hcl
+                      zero: false
+                  axes:
+                    - scale: y
+                      gridScale: x
+                      grid: true
+                      orient: left
+                      maxExtent: 0
+                      zindex: 0
+                      minExtent: 0
+                      tickCount: 5
+                      labels: false
+                      ticks: false
+                      domain: false
+                      aria: false
+                    - scale: x
+                      grid: false
+                      labelAlign: right
+                      orient: bottom
+                      labelAngle: 270
+                      zindex: 0
+                      title: Compagnie aérienne
+                      labelBaseline: middle
+                    - scale: y
+                      title: Années
+                      encode:
+                        labels:
+                          update:
+                            text:
+                              signal: numberFormatFromNumberType(datum.value,
+                                {"decimals":null,"type":"default"})
+                      zindex: 0
+                      grid: false
+                      tickCount: 5
+                      orient: left
+                      labelOverlap: true
+                  title:
+                    text: Quelle a été la meilleure année en RPM pour chaque compagnie aérienne ?
+                    frame: group
+                  usermeta:
+                    seriesOrder:
+                      - 0
+                    tooltipDefaultMode: true
+                    seriesNames:
+                      - best_year
+                    specSchemaVersion: 2
+                    outputMetadata:
+                      rowLimitExceeded: false
+                      rowLimit: 5000
+                      filteredDataframeSize: 3
+                      columns:
+                        - name: airline_name
+                          nativeType: object
+                          distinctValues:
+                            - Amazon Airlines
+                            - Flock Air
+                            - Goose Airways
+                        - name: best_year
+                          nativeType: int64
+                          distinctValues:
+                            - 2015
+                            - 2016
+                        - name: total_rpm
+                          nativeType: float64
+                          distinctValues:
+                            - 11912594
+                            - 17318668
+                            - 49260222
+                        - name: total_rpm_domestic
+                          nativeType: float64
+                          distinctValues:
+                            - 9175044
+                            - 13405774
+                            - 34637841
+                        - name: total_rpm_international
+                          nativeType: float64
+                          distinctValues:
+                            - 2737550
+                            - 3912894
+                            - 14622381
+                  style: cell
+                  legends:
+                    - fill: layer_0_layer_0_color
+                      direction: horizontal
+                      gradientLength:
+                        signal: clamp(width, 100, 200)
+                      title: Sum of total_rpm
+                      encode:
+                        gradient:
+                          update:
+                            opacity:
+                              value: 1
+                  background: white
+                  padding: 5
+                  config:
+                    customFormatTypes: true
+                    legend:
+                      orient: bottom
+                      disable: false
+                  autosize:
+                    type: fit
+                    contains: padding
+                text/plain: <deepnote_toolkit.chart.deepnote_chart.DeepnoteChart at
+                  0x7f7d3438e890>
+              metadata: {}
+          sortingKey: yU
+          type: visualization
+        - blockGroup: e8efa88c21d94acba2be2270bae87f16
+          content: |-
+            WITH yearly_asm AS (
+                SELECT
+                    al.airline_name,
+                    EXTRACT(year FROM fs.date) AS flight_year,
+                    AVG(fs.asm_domestic) AS avg_asm_domestic
+                FROM analytics.aircraft.dim_airline al
+                LEFT JOIN analytics.aircraft.fct_flight_summary fs 
+                    ON al.airline_code = fs.airline_code
+                    GROUP BY 1, 2
+            ),
+
+            best_asm AS (
+                SELECT *
+                FROM yearly_asm a
+                WHERE avg_asm_domestic = (
+                    SELECT MAX(avg_asm_domestic)
+                    FROM yearly_asm
+                    WHERE airline_name = a.airline_name
+                )
+            )
+
+            SELECT
+                airline_name,
+                flight_year AS best_growth_year,
+                avg_asm_domestic
+            FROM best_asm
+            ORDER BY airline_name;
+          executionCount: 385
+          id: 7ef4dfe3a29c4599ac0bf8d64b02b6e0
+          metadata:
+            execution_start: 1767198964428
+            execution_millis: 3220
+            sql_integration_id: 1d4e6ac3-7a9b-428f-bd7b-9f7e975e2bcf
+            execution_context_id: dd8c7579-5917-4d85-819e-598913aec215
+            deepnote_variable_name: df_4
+          outputs:
+            - data:
+                application/vnd.deepnote.sql-output-metadata+json:
+                  status: success_no_cache
+                  size_in_bytes: 388
+                  compiled_query: |-
+                    WITH yearly_asm AS (
+                        SELECT
+                            al.airline_name,
+                            EXTRACT(year FROM fs.date) AS flight_year,
+                            AVG(fs.asm_domestic) AS avg_asm_domestic
+                        FROM analytics.aircraft.dim_airline al
+                        LEFT JOIN analytics.aircraft.fct_flight_summary fs 
+                            ON al.airline_code = fs.airline_code
+                            GROUP BY 1, 2
+                    ),
+
+                    best_asm AS (
+                        SELECT *
+                        FROM yearly_asm a
+                        WHERE avg_asm_domestic = (
+                            SELECT MAX(avg_asm_domestic)
+                            FROM yearly_asm
+                            WHERE airline_name = a.airline_name
+                        )
+                    )
+
+                    SELECT
+                        airline_name,
+                        flight_year AS best_growth_year,
+                        avg_asm_domestic
+                    FROM best_asm
+                    ORDER BY airline_name
+                    /* {"app":"deepnote","submitted_by":"user","user_email":"maxime.breuillard@orange.fr","workspace_id":"6704ce44-89db-434c-a146-cd791f7ac4e6","project_id":"46d433ee-a18b-4fb7-bdda-a5242bede5ce","notebook_id":"f41edbb04e404c22a18d48518c1558eb","project_url":"https://deepnote.com/project/46d433ee-a18b-4fb7-bdda-a5242bede5ce"} */;
+                  variable_type: dataframe
+                  integration_id: 1d4e6ac3-7a9b-428f-bd7b-9f7e975e2bcf
+              metadata: {}
+              output_type: display_data
+            - output_type: execute_result
+              execution_count: 385
+              data:
+                application/vnd.deepnote.dataframe.v3+json:
+                  column_count: 3
+                  columns:
+                    - name: airline_name
+                      dtype: object
+                      stats:
+                        unique_count: 3
+                        nan_count: 0
+                        min: null
+                        max: null
+                        histogram: null
+                        categories:
+                          - name: Amazon Airlines
+                            count: 1
+                          - name: Flock Air
+                            count: 1
+                          - name: Goose Airways
+                            count: 1
+                    - name: best_growth_year
+                      dtype: int64
+                      stats:
+                        unique_count: 2
+                        nan_count: 0
+                        min: "2002"
+                        max: "2016"
+                        histogram:
+                          - bin_start: 2002
+                            bin_end: 2003.4
+                            count: 1
+                          - bin_start: 2003.4
+                            bin_end: 2004.8
+                            count: 0
+                          - bin_start: 2004.8
+                            bin_end: 2006.2
+                            count: 0
+                          - bin_start: 2006.2
+                            bin_end: 2007.6
+                            count: 0
+                          - bin_start: 2007.6
+                            bin_end: 2009
+                            count: 0
+                          - bin_start: 2009
+                            bin_end: 2010.4
+                            count: 0
+                          - bin_start: 2010.4
+                            bin_end: 2011.8
+                            count: 0
+                          - bin_start: 2011.8
+                            bin_end: 2013.2
+                            count: 0
+                          - bin_start: 2013.2
+                            bin_end: 2014.6
+                            count: 0
+                          - bin_start: 2014.6
+                            bin_end: 2016
+                            count: 2
+                        categories: null
+                    - name: avg_asm_domestic
+                      dtype: float64
+                      stats:
+                        unique_count: 3
+                        nan_count: 0
+                        min: "315931.0"
+                        max: "1100639.5"
+                        histogram:
+                          - bin_start: 315931
+                            bin_end: 394401.85
+                            count: 1
+                          - bin_start: 394401.85
+                            bin_end: 472872.7
+                            count: 1
+                          - bin_start: 472872.7
+                            bin_end: 551343.55
+                            count: 0
+                          - bin_start: 551343.55
+                            bin_end: 629814.4
+                            count: 0
+                          - bin_start: 629814.4
+                            bin_end: 708285.25
+                            count: 0
+                          - bin_start: 708285.25
+                            bin_end: 786756.1000000001
+                            count: 0
+                          - bin_start: 786756.1000000001
+                            bin_end: 865226.9500000001
+                            count: 0
+                          - bin_start: 865226.9500000001
+                            bin_end: 943697.8
+                            count: 0
+                          - bin_start: 943697.8
+                            bin_end: 1022168.65
+                            count: 0
+                          - bin_start: 1022168.65
+                            bin_end: 1100639.5
+                            count: 1
+                        categories: null
+                    - name: _deepnote_index_column
+                      dtype: int64
+                  row_count: 3
+                  preview_row_count: 3
+                  rows:
+                    - airline_name: Amazon Airlines
+                      best_growth_year: 2002
+                      avg_asm_domestic: 315931
+                      _deepnote_index_column: 0
+                    - airline_name: Flock Air
+                      best_growth_year: 2016
+                      avg_asm_domestic: 427255.4166666667
+                      _deepnote_index_column: 1
+                    - airline_name: Goose Airways
+                      best_growth_year: 2016
+                      avg_asm_domestic: 1100639.5
+                      _deepnote_index_column: 2
+                  type: dataframe
+                text/plain: |2-
+                        airline_name  best_growth_year  avg_asm_domestic
+                  0  Amazon Airlines              2002      3.159310e+05
+                  1        Flock Air              2016      4.272554e+05
+                  2    Goose Airways              2016      1.100640e+06
+                text/html: |-
+                  <div>
+                  <style scoped>
+                      .dataframe tbody tr th:only-of-type {
+                          vertical-align: middle;
+                      }
+
+                      .dataframe tbody tr th {
+                          vertical-align: top;
+                      }
+
+                      .dataframe thead th {
+                          text-align: right;
+                      }
+                  </style>
+                  <table border="1" class="dataframe">
+                    <thead>
+                      <tr style="text-align: right;">
+                        <th></th>
+                        <th>airline_name</th>
+                        <th>best_growth_year</th>
+                        <th>avg_asm_domestic</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>0</th>
+                        <td>Amazon Airlines</td>
+                        <td>2002</td>
+                        <td>3.159310e+05</td>
+                      </tr>
+                      <tr>
+                        <th>1</th>
+                        <td>Flock Air</td>
+                        <td>2016</td>
+                        <td>4.272554e+05</td>
+                      </tr>
+                      <tr>
+                        <th>2</th>
+                        <td>Goose Airways</td>
+                        <td>2016</td>
+                        <td>1.100640e+06</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+              metadata:
+                table_state_spec: "{}"
+          sortingKey: yj
+          type: sql
+        - blockGroup: 8116eca5a1134b429ff0a6528401a125
+          content: ""
+          executionCount: 562
+          id: 6efca92ccf0047fe8a93c5f19e898e91
+          metadata:
+            execution_start: 1767199946409
+            execution_millis: 52
+            execution_context_id: dd8c7579-5917-4d85-819e-598913aec215
+            deepnote_chart_height: 556
+            deepnote_variable_name: df_4
+            deepnote_config_collapsed: true
+            deepnote_visualization_spec:
+              layer:
+                - layer:
+                    - layer:
+                        - mark:
+                            clip: true
+                            type: circle
+                            tooltip: false
+                          encoding:
+                            x:
+                              axis:
+                                title: Capacité de transport
+                              sort: null
+                              type: quantitative
+                              field: avg_asm_domestic
+                              scale:
+                                type: linear
+                                zero: false
+                              format:
+                                type: default
+                                decimals: null
+                              formatType: numberFormatFromNumberType
+                            y:
+                              axis:
+                                title: Année
+                                format:
+                                  type: default
+                                  decimals: null
+                                formatType: numberFormatFromNumberType
+                              type: quantitative
+                              field: best_growth_year
+                              scale:
+                                type: linear
+                                zero: false
+                                domainMax: 2018
+                                domainMin: 2000
+                              format:
+                                type: default
+                                decimals: null
+                              formatType: numberFormatFromNumberType
+                            color:
+                              sort: null
+                              type: nominal
+                              field: airline_name
+                              scale:
+                                scheme: deepnote10
+                          transform: []
+                  resolve:
+                    scale:
+                      color: independent
+              title: Quelle a été l'année avec le plus de capacité de transport pour chaque
+                compagnie aérienne ?
+              config:
+                legend:
+                  orient: bottom
+                  disable: false
+              params:
+                - name: valueLabelsColor
+                  value: black
+              $schema: https://vega.github.io/schema/vega-lite/v5.json
+              encoding: {}
+              usermeta:
+                seriesNames:
+                  - best_growth_year
+                seriesOrder:
+                  - 0
+                specSchemaVersion: 2
+                tooltipDefaultMode: true
+          outputs:
+            - output_type: execute_result
+              execution_count: 562
+              data:
+                application/vnd.vega.v5+json:
+                  $schema: https://vega.github.io/schema/vega/v5.json
+                  data:
+                    - name: legend_size_0_store
+                    - name: legend_color_0_store
+                    - name: interval_selection_store
+                    - name: source_0
+                      values:
+                        - airline_name: Amazon Airlines
+                          best_growth_year: 2002
+                          avg_asm_domestic: 315931
+                          _deepnote_index_column: 0
+                        - airline_name: Flock Air
+                          best_growth_year: 2016
+                          avg_asm_domestic: 427255.4166666667
+                          _deepnote_index_column: 1
+                        - airline_name: Goose Airways
+                          best_growth_year: 2016
+                          avg_asm_domestic: 1100639.5
+                          _deepnote_index_column: 2
+                    - name: source_0_x_domain_avg_asm_domestic
+                      values:
+                        - min: 315931
+                          max: 1100639.5
+                    - name: source_0_y_domain_best_growth_year
+                      values:
+                        - min: 2002
+                          max: 2016
+                    - name: source_0_layer_0_layer_0_color_domain_airline_name
+                      values:
+                        - airline_name: Amazon Airlines
+                        - airline_name: Flock Air
+                        - airline_name: Goose Airways
+                  signals:
+                    - name: width
+                      init: "isFinite(containerSize()[0]) ? containerSize()[0] : 200"
+                      on:
+                        - events: window:resize
+                          update: "isFinite(containerSize()[0]) ? containerSize()[0] : 200"
+                    - name: height
+                      init: "isFinite(containerSize()[1]) ? containerSize()[1] : 200"
+                      on:
+                        - events: window:resize
+                          update: "isFinite(containerSize()[1]) ? containerSize()[1] : 200"
+                    - name: unit
+                      value: {}
+                      on:
+                        - events: pointermove
+                          update: "isTuple(group()) ? group() : unit"
+                    - name: legend_color_0_airline_name_legend
+                      value: null
+                      on:
+                        - events:
+                            - source: view
+                              markname: airline_name_legend_symbols
+                              type: click
+                            - source: view
+                              markname: airline_name_legend_labels
+                              type: click
+                            - source: view
+                              markname: airline_name_legend_entries
+                              type: click
+                          update: "isDefined(datum.value) ? datum.value :
+                            item().items[0].items[0].datum.value"
+                          force: true
+                        - events:
+                            - source: view
+                              type: click
+                          update: "!event.item || !datum ? null : legend_color_0_airline_name_legend"
+                          force: true
+                    - name: legend_size_0
+                      update: vlSelectionResolve("legend_size_0_store", "union", true, true)
+                    - name: legend_color_0
+                      update: vlSelectionResolve("legend_color_0_store", "union", true, true)
+                    - name: interval_selection
+                      update: vlSelectionResolve("interval_selection_store", "union")
+                    - name: valueLabelsColor
+                      value: black
+                    - name: legend_size_0_tuple
+                      on:
+                        - events:
+                            - source: scope
+                              type: click
+                          update: "datum && item().mark.marktype !== 'group' && indexof(item().mark.role,
+                            'legend') < 0 && indexof(item().mark.name,
+                            'interval_selection_brush') < 0 ? {unit:
+                            \"layer_0_layer_0_layer_0\", fields:
+                            legend_size_0_tuple_fields, values: []} : null"
+                          force: true
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "null"
+                    - name: legend_size_0_tuple_fields
+                      value: []
+                    - name: legend_size_0_toggle
+                      value: false
+                      on:
+                        - events:
+                            - source: scope
+                              type: click
+                          update: "true"
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "false"
+                    - name: legend_size_0_modify
+                      on:
+                        - events:
+                            signal: legend_size_0_tuple
+                          update: 'modify("legend_size_0_store", legend_size_0_toggle ? null :
+                            legend_size_0_tuple, legend_size_0_toggle ? null :
+                            true, legend_size_0_toggle ? legend_size_0_tuple :
+                            null)'
+                    - name: legend_color_0_tuple
+                      update: "legend_color_0_airline_name_legend !== null ? {fields:
+                        legend_color_0_tuple_fields, values:
+                        [legend_color_0_airline_name_legend]} : null"
+                    - name: legend_color_0_tuple_fields
+                      value:
+                        - field: airline_name
+                          channel: color
+                          type: E
+                    - name: legend_color_0_toggle
+                      value: false
+                      on:
+                        - events:
+                            merge:
+                              - source: view
+                                type: click
+                          update: "true"
+                    - name: legend_color_0_modify
+                      on:
+                        - events:
+                            signal: legend_color_0_tuple
+                          update: 'modify("legend_color_0_store", legend_color_0_toggle ? null :
+                            legend_color_0_tuple, legend_color_0_toggle ? null :
+                            true, legend_color_0_toggle ? legend_color_0_tuple :
+                            null)'
+                    - name: interval_selection_x
+                      value: []
+                      on:
+                        - events:
+                            source: scope
+                            filter:
+                              - '!event.item || event.item.mark.name !==
+                                "interval_selection_brush"'
+                            type: pointerdown
+                          update: "[x(unit), x(unit)]"
+                        - events:
+                            source: window
+                            between:
+                              - source: scope
+                                filter:
+                                  - '!event.item || event.item.mark.name !==
+                                    "interval_selection_brush"'
+                                type: pointerdown
+                              - source: window
+                                type: pointerup
+                            consume: true
+                            type: pointermove
+                          update: "[interval_selection_x[0], clamp(x(unit), 0, width)]"
+                        - events:
+                            signal: interval_selection_scale_trigger
+                          update: '[scale("x", interval_selection_avg_asm_domestic[0]), scale("x",
+                            interval_selection_avg_asm_domestic[1])]'
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "[0, 0]"
+                        - events:
+                            signal: interval_selection_translate_delta
+                          update: clampRange(panLinear(interval_selection_translate_anchor.extent_x,
+                            interval_selection_translate_delta.x /
+                            span(interval_selection_translate_anchor.extent_x)),
+                            0, width)
+                        - events:
+                            signal: interval_selection_zoom_delta
+                          update: clampRange(zoomLinear(interval_selection_x,
+                            interval_selection_zoom_anchor.x,
+                            interval_selection_zoom_delta), 0, width)
+                    - name: interval_selection_avg_asm_domestic
+                      on:
+                        - events:
+                            signal: interval_selection_x
+                          update: 'interval_selection_x[0] === interval_selection_x[1] ? null :
+                            invert("x", interval_selection_x)'
+                    - name: interval_selection_y
+                      value: []
+                      on:
+                        - events:
+                            source: scope
+                            filter:
+                              - '!event.item || event.item.mark.name !==
+                                "interval_selection_brush"'
+                            type: pointerdown
+                          update: "[y(unit), y(unit)]"
+                        - events:
+                            source: window
+                            between:
+                              - source: scope
+                                filter:
+                                  - '!event.item || event.item.mark.name !==
+                                    "interval_selection_brush"'
+                                type: pointerdown
+                              - source: window
+                                type: pointerup
+                            consume: true
+                            type: pointermove
+                          update: "[interval_selection_y[0], clamp(y(unit), 0, height)]"
+                        - events:
+                            signal: interval_selection_scale_trigger
+                          update: '[scale("y", interval_selection_best_growth_year[0]), scale("y",
+                            interval_selection_best_growth_year[1])]'
+                        - events:
+                            - source: view
+                              type: dblclick
+                          update: "[0, 0]"
+                        - events:
+                            signal: interval_selection_translate_delta
+                          update: clampRange(panLinear(interval_selection_translate_anchor.extent_y,
+                            interval_selection_translate_delta.y /
+                            span(interval_selection_translate_anchor.extent_y)),
+                            0, height)
+                        - events:
+                            signal: interval_selection_zoom_delta
+                          update: clampRange(zoomLinear(interval_selection_y,
+                            interval_selection_zoom_anchor.y,
+                            interval_selection_zoom_delta), 0, height)
+                    - name: interval_selection_best_growth_year
+                      on:
+                        - events:
+                            signal: interval_selection_y
+                          update: 'interval_selection_y[0] === interval_selection_y[1] ? null :
+                            invert("y", interval_selection_y)'
+                    - name: interval_selection_scale_trigger
+                      value: {}
+                      on:
+                        - events:
+                            - scale: x
+                            - scale: y
+                          update: '(!isArray(interval_selection_avg_asm_domestic) || (+invert("x",
+                            interval_selection_x)[0] ===
+                            +interval_selection_avg_asm_domestic[0] &&
+                            +invert("x", interval_selection_x)[1] ===
+                            +interval_selection_avg_asm_domestic[1])) &&
+                            (!isArray(interval_selection_best_growth_year) ||
+                            (+invert("y", interval_selection_y)[0] ===
+                            +interval_selection_best_growth_year[0] &&
+                            +invert("y", interval_selection_y)[1] ===
+                            +interval_selection_best_growth_year[1])) ?
+                            interval_selection_scale_trigger : {}'
+                    - name: interval_selection_tuple
+                      on:
+                        - events:
+                            - signal: interval_selection_avg_asm_domestic ||
+                                interval_selection_best_growth_year
+                          update: 'interval_selection_avg_asm_domestic &&
+                            interval_selection_best_growth_year ? {unit:
+                            "layer_0_layer_0_layer_0", fields:
+                            interval_selection_tuple_fields, values:
+                            [interval_selection_avg_asm_domestic,interval_selection_best_growth_year]}
+                            : null'
+                    - name: interval_selection_tuple_fields
+                      value:
+                        - field: avg_asm_domestic
+                          channel: x
+                          type: R
+                        - field: best_growth_year
+                          channel: y
+                          type: R
+                    - name: interval_selection_translate_anchor
+                      value: {}
+                      on:
+                        - events:
+                            - source: scope
+                              markname: interval_selection_brush
+                              type: pointerdown
+                          update: "{x: x(unit), y: y(unit), extent_x: slice(interval_selection_x),
+                            extent_y: slice(interval_selection_y)}"
+                    - name: interval_selection_translate_delta
+                      value: {}
+                      on:
+                        - events:
+                            - source: window
+                              between:
+                                - source: scope
+                                  markname: interval_selection_brush
+                                  type: pointerdown
+                                - source: window
+                                  type: pointerup
+                              type: pointermove
+                              consume: true
+                          update: "{x: interval_selection_translate_anchor.x - x(unit), y:
+                            interval_selection_translate_anchor.y - y(unit)}"
+                    - name: interval_selection_zoom_anchor
+                      on:
+                        - events:
+                            - source: scope
+                              markname: interval_selection_brush
+                              consume: true
+                              type: wheel
+                          update: "{x: x(unit), y: y(unit)}"
+                    - name: interval_selection_zoom_delta
+                      on:
+                        - events:
+                            - source: scope
+                              markname: interval_selection_brush
+                              type: wheel
+                              consume: true
+                          update: pow(1.001, event.deltaY * pow(16, event.deltaMode))
+                          force: true
+                    - name: interval_selection_modify
+                      on:
+                        - events:
+                            signal: interval_selection_tuple
+                          update: modify("interval_selection_store", interval_selection_tuple, true)
+                  marks:
+                    - type: rect
+                      name: interval_selection_brush_bg
+                      encode:
+                        update:
+                          x2:
+                            - signal: interval_selection_x[1]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          y2:
+                            - signal: interval_selection_y[1]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          y:
+                            - signal: interval_selection_y[0]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          x:
+                            - signal: interval_selection_x[0]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                        enter:
+                          fillOpacity:
+                            value: 0.125
+                          fill:
+                            value: "#333"
+                      clip: true
+                    - type: symbol
+                      name: layer_0_layer_0_layer_0_marks
+                      from:
+                        data: source_0
+                      encode:
+                        update:
+                          opacity:
+                            - value: 1
+                              test: (!length(data("legend_size_0_store")) ||
+                                vlSelectionTest("legend_size_0_store", datum))
+                                && (!length(data("legend_color_0_store")) ||
+                                vlSelectionTest("legend_color_0_store", datum))
+                                && (!length(data("interval_selection_store")) ||
+                                vlSelectionTest("interval_selection_store",
+                                datum))
+                            - value: 0.2
+                          fill:
+                            field: airline_name
+                            scale: layer_0_layer_0_color
+                          y:
+                            field: best_growth_year
+                            scale: y
+                          x:
+                            field: avg_asm_domestic
+                            scale: x
+                          tooltip:
+                            value: false
+                          shape:
+                            value: circle
+                      clip: true
+                      style:
+                        - circle
+                      interactive: true
+                    - type: rect
+                      name: interval_selection_brush
+                      encode:
+                        enter:
+                          cursor:
+                            value: move
+                          fill:
+                            value: transparent
+                        update:
+                          y:
+                            - signal: interval_selection_y[0]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          stroke:
+                            - value: white
+                              test: interval_selection_x[0] !== interval_selection_x[1] &&
+                                interval_selection_y[0] !==
+                                interval_selection_y[1]
+                            - {}
+                          x2:
+                            - signal: interval_selection_x[1]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          x:
+                            - signal: interval_selection_x[0]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                          y2:
+                            - signal: interval_selection_y[1]
+                              test: data("interval_selection_store").length &&
+                                data("interval_selection_store")[0].unit ===
+                                "layer_0_layer_0_layer_0"
+                            - value: 0
+                      clip: true
+                  scales:
+                    - name: x
+                      type: linear
+                      domain:
+                        - signal: (data("source_0_x_domain_avg_asm_domestic")[0] || {}).min
+                        - signal: (data("source_0_x_domain_avg_asm_domestic")[0] || {}).max
+                      range:
+                        - 0
+                        - signal: width
+                      zero: false
+                      nice: true
+                    - name: y
+                      type: linear
+                      domain:
+                        - signal: (data("source_0_y_domain_best_growth_year")[0] || {}).min
+                        - signal: (data("source_0_y_domain_best_growth_year")[0] || {}).max
+                      range:
+                        - signal: height
+                        - 0
+                      zero: false
+                      domainMax: 2018
+                      domainMin: 2000
+                    - name: layer_0_layer_0_color
+                      type: ordinal
+                      domain:
+                        data: source_0_layer_0_layer_0_color_domain_airline_name
+                        field: airline_name
+                      range:
+                        scheme: deepnote10
+                  axes:
+                    - scale: x
+                      tickCount: 5
+                      labels: false
+                      domain: false
+                      aria: false
+                      ticks: false
+                      zindex: 0
+                      orient: bottom
+                      maxExtent: 0
+                      gridScale: y
+                      grid: true
+                      minExtent: 0
+                    - scale: y
+                      ticks: false
+                      domain: false
+                      minExtent: 0
+                      maxExtent: 0
+                      labels: false
+                      zindex: 0
+                      grid: true
+                      aria: false
+                      tickCount: 5
+                      orient: left
+                      gridScale: x
+                    - scale: x
+                      zindex: 0
+                      orient: bottom
+                      labelFlush: true
+                      labelOverlap: true
+                      grid: false
+                      title: Capacité de transport
+                      tickCount: 5
+                    - scale: y
+                      zindex: 0
+                      encode:
+                        labels:
+                          update:
+                            text:
+                              signal: numberFormatFromNumberType(datum.value,
+                                {"decimals":null,"type":"default"})
+                      tickCount: 5
+                      orient: left
+                      grid: false
+                      title: Année
+                      labelOverlap: true
+                  title:
+                    text: Quelle a été l'année avec le plus de capacité de transport pour chaque
+                      compagnie aérienne ?
+                    frame: group
+                  usermeta:
+                    specSchemaVersion: 2
+                    seriesOrder:
+                      - 0
+                    seriesNames:
+                      - best_growth_year
+                    tooltipDefaultMode: true
+                    outputMetadata:
+                      rowLimitExceeded: false
+                      rowLimit: 5000
+                      filteredDataframeSize: 3
+                      columns:
+                        - name: airline_name
+                          nativeType: object
+                          distinctValues:
+                            - Amazon Airlines
+                            - Flock Air
+                            - Goose Airways
+                        - name: best_growth_year
+                          nativeType: int64
+                          distinctValues:
+                            - 2002
+                            - 2016
+                        - name: avg_asm_domestic
+                          nativeType: float64
+                          distinctValues:
+                            - 315931
+                            - 427255.4166666667
+                            - 1100639.5
+                  background: white
+                  config:
+                    customFormatTypes: true
+                    legend:
+                      orient: bottom
+                      disable: false
+                  autosize:
+                    type: fit
+                    contains: padding
+                  legends:
+                    - fill: layer_0_layer_0_color
+                      direction: horizontal
+                      symbolType: circle
+                      title: airline_name
+                      encode:
+                        labels:
+                          name: airline_name_legend_labels
+                          interactive: true
+                          update:
+                            opacity:
+                              - test: (!length(data("legend_color_0_store")) || (legend_color_0["airline_name"]
+                                  && indexof(legend_color_0["airline_name"],
+                                  datum.value) >= 0))
+                                value: 1
+                              - value: 0.35
+                        symbols:
+                          name: airline_name_legend_symbols
+                          interactive: true
+                          update:
+                            opacity:
+                              - test: (!length(data("legend_color_0_store")) || (legend_color_0["airline_name"]
+                                  && indexof(legend_color_0["airline_name"],
+                                  datum.value) >= 0))
+                                value: 1
+                              - value: 0.35
+                        entries:
+                          name: airline_name_legend_entries
+                          interactive: true
+                          update:
+                            fill:
+                              value: transparent
+                  style: cell
+                  padding: 5
+                text/plain: <deepnote_toolkit.chart.deepnote_chart.DeepnoteChart at
+                  0x7f7cd454b7d0>
+              metadata: {}
+          sortingKey: yr
+          type: visualization
+      executionMode: block
+      id: f41edbb04e404c22a18d48518c1558eb
+      isModule: false
+      name: Notebook 1
+  settings: {}
+version: 1.0.0

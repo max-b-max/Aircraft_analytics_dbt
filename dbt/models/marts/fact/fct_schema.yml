@@ -1,0 +1,161 @@
+version: 2
+
+models:
+
+  # ----------------------------
+  # FCT : INDIVIDUAL FLIGHTS
+  # ----------------------------
+  - name: fct_individual_flights
+    description: "Fait représentant un vol individuel enrichi avec avion, compagnie et aéroports."
+    columns:
+      - name: flight_id
+        description: "Identifiant unique du vol."
+        tests:
+          - not_null
+          - unique
+
+      - name: aircraft_id
+        description: "Identifiant de l'avion (FK dim_aircraft)."
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_aircraft')
+                field: aircraft_id
+
+      - name: airline_code
+        description: "Code de la compagnie opératrice (FK dim_airlines)."
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_airlines')
+                field: airline_code
+
+      - name: departure_airport_code
+        description: "Code de l'aéroport de départ (FK dim_airports)."
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_airports')
+                field: airport_code
+
+      - name: destination_airport_code
+        description: "Code de l'aéroport d'arrivée (FK dim_airports)."
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_airports')
+                field: airport_code
+
+
+  # ----------------------------
+  # FCT : FLIGHT SUMMARY
+  # ----------------------------
+  - name: fct_flight_summary
+    description: "Métriques journalières par compagnie et aéroport : ASM, RPM, vols et passagers."
+    columns:
+      - name: date
+        tests:
+          - not_null
+
+      - name: airline_code
+        description: "Compagnie aérienne (FK dim_airlines)."
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_airlines')
+                field: airline_code
+
+      - name: airport_code
+        description: "Aéroport (FK dim_airports)."
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_airports')
+                field: airport_code
+
+      - name: asm_domestic
+        description: "Available Seat Miles domestiques."
+      - name: asm_international
+        description: "Available Seat Miles internationaux."
+      - name: flights_domestic
+        description: "Nombre de vols domestiques."
+      - name: flights_international
+        description: "Nombre de vols internationaux."
+      - name: passengers_domestic
+        description: "Nombre de passagers domestiques."
+      - name: passengers_international
+        description: "Nombre de passagers internationaux."
+      - name: rpm_domestic
+        description: "Revenue Passenger Miles domestiques."
+      - name: rpm_international
+        description: "Revenue Passenger Miles internationaux."
+
+
+  # ----------------------------
+  # FCT : AIRCRAFT
+  # ----------------------------
+  - name: fct_aircraft
+    description: "Statistiques d’usage des avions: nombre de vols, compagnies servies, aéroports desservis."
+    columns:
+      - name: aircraft_id
+        description: "Avion concerné (FK vers dim_aircraft)."
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_aircraft')
+                field: aircraft_id
+
+      - name: total_flights
+        description: "Nombre total de vols opérés par cet avion."
+
+      - name: total_airlines_served
+        description: "Nombre total de compagnies ayant utilisé l'avion."
+
+      - name: nb_airports_served
+        description: "Nombre total d'aéroports desservis."
+
+
+
+  # ----------------------------
+  # FCT : AIRPORT
+  # ----------------------------
+  - name: fct_airport
+    description: >
+      Fait consolidant l’activité par aéroport :
+      total vols, nombre de passagers,
+      nombre de compagnies opérant et nombre d'avions distincts.
+    columns:
+      - name: airport_code
+        description: "Code aéroport (clé primaire, FK vers dim_airport)."
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('dim_airport')
+              field: airport_code
+
+      - name: airport_name
+        description: "Nom de l'aéroport (depuis dim_airport)."
+
+      - name: airport_employees
+        description: "Nombre d'employés de l'aéroport (depuis dim_airport)."
+
+      - name: airport_size
+        description: "Capacité / taille de l'aéroport (depuis dim_airport)."
+
+      - name: nb_flights
+        description: "Nombre total de vols liés à cet aéroport (arrivées + départs)."
+        tests:
+          - not_null
+
+      - name: nb_passengers
+        description: "Nombre total de passagers."
+        tests:
+          - not_null
+
+      - name: nb_airlines
+        description: "Nombre de compagnies opérant sur cet aéroport."
+
+      - name: nb_aircrafts
+        description: "Nombre d'avions distincts ayant opéré sur cet aéroport."
